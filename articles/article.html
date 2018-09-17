@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber-physical systems</title>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  
+
+   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  
+
+  <style>
+@font-face {
+    font-family: Basier; 
+    src: url(../font/basier.ttf); 
+   }
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+    font-family: Basier, sans-serif;
+
+} 
+body {
+  background: url("img/photo1.jpg") no-repeat;
+  background-size: 100%;
+  background-position: top center;
+
+  margin: 0;
+  padding: 0;
+  background-attachment: fixed;
+  color: #393941;
+  font-family: Basier, sans-serif;
+}
+
+
+
+img[src="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"]{
+display: none;
+}
+
+ul {
+    z-index: 10;
+margin-left: 7%;
+    list-style: none;
+    float: left;
+
+}
+
+
+li {
+    display: inline;
+}
+a {
+    text-decoration: none;
+    color: #393941;
+    font-size: 1.5vw;
+}
+
+a:hover {text-decoration: none;
+color: #000;
+}
+
+a:focus {text-decoration: none;color: #000;}
+
+.link {
+ margin-top: 5%;
+    color: #393941;
+    margin-right: 7%;
+text-align: right;
+text-transform: uppercase;
+
+}
+
+
+@media  (min-width: 320px) and (max-width: 435px) {
+.link {
+ margin-top: 5%;
+ }
+}
+
+
+.menu-hover-lines {
+
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.35s ease;
+}
+.menu-hover-lines li a {
+    padding: 0.75rem 0;
+    color: rgba(10, 10, 10, 0.5);
+    position: relative;
+    margin-left: 1rem;
+}
+.menu-hover-lines li:first-child a {
+    margin-left: 0;
+}
+.menu-hover-lines li.active > a {
+    background-color: transparent;
+}
+.menu-hover-lines a:before,
+.menu-hover-lines a::after {
+    height: 2px;
+    border-radius: 0.8px;
+    position: absolute;
+    content: '';
+    transition: all 0.35s ease;
+    background-color: #c3d1e7;
+    width: 0;
+}
+.menu-hover-lines a::before {
+    top: 0;
+    left: 0;
+}
+.menu-hover-lines a::after {
+    bottom: 0;
+    right: 0;
+}
+.menu-hover-lines a:hover,
+.menu-hover-lines li.active > a {
+    color: #393941;
+    transition: all 0.35s ease;
+}
+.menu-hover-lines a:hover::before,
+.menu-hover-lines .active a::before,
+.menu-hover-lines a:hover::after,
+.menu-hover-lines .active a::after {
+    width: 100%;
+}
+@keyframes fadeIn {
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 435px) {
+a {font-size: 3.5vw;}}
+
+
+
+header {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+padding: 0 0 8vw 0;
+    animation: fadeIn 1s 0.5s forwards ease-in;
+}
+
+
+
+
+.act {
+    background: white;
+margin: 0 auto;
+padding: 0.1vw 0 0 0.1vw;
+}
+
+
+
+
+h1 {
+cursor: default;
+  font-size: 10vw;
+  line-height: 1;
+  text-align: center;
+  font-family: Basier, sans-serif;
+  text-transform: uppercase;
+  color: #fefefe;
+  margin: 12vw 1vw 10vw 1vw;
+font-weight: 600;
+text-shadow: 1vw 1vw 10vw rgba(99, 99, 99, 0.5)
+}
+
+img {
+  width: 100%;
+}
+
+.wrapper {
+  background: #fefefe;
+  width: 100%;
+  min-height: 100%;
+  margin: 0 0 0 0;
+  position: relative;
+
+}
+
+.content-wrapper {
+  padding: 5% 10%;
+  width: 100%;
+  margin: auto;
+
+  cursor: default;
+
+
+font-size: 2.5vh;
+  line-height: 2;
+  }
+
+.first-character {font-weight:400; float: left; font-size: 7vh; line-height: 2vh; padding-top: 4px; padding-right: 0.2vw; padding-left: 3px; }
+
+.content-wrapper .image-left {
+  padding: 5% 5% 5% 0;
+  width: 50%;
+  float: left;
+  opacity: 0.8;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.6s;
+  -o-transition-duration: 0.6s;
+  -webkit-transition-duration: 0.6s;
+  transition-duration: 0.6s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  font-size: 80%;
+  font-style: italic;
+  line-height: 20px;
+}
+@media (max-width: 900px) {
+  .content-wrapper .image-left {
+    width: 100%;
+    padding: 0 0 5% 0;
+  }
+}
+.content-wrapper .image-left img {
+  margin: 0 0 10px 0;
+}
+.content-wrapper .image-left:hover {
+  opacity: 1;
+}
+
+.content-wrapper .image-right {
+  padding: 5% 0 5% 5%;
+  width: 50%;
+  float: right;
+  opacity: 0.8;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.6s;
+  -o-transition-duration: 0.6s;
+  -webkit-transition-duration: 0.6s;
+  transition-duration: 0.6s;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  font-size: 80%;
+  font-style: italic;
+  line-height: 20px;
+}
+@media (max-width: 900px) {
+  .content-wrapper .image-right {
+    width: 100%;
+    float: left;
+    padding: 0 0 5% 0;
+  }
+}
+.content-wrapper .image-right img {
+  margin: 0 0 10px 0;
+}
+.content-wrapper .image-right:hover {
+  opacity: 1;
+}
+
+
+
+.container {
+ width: 100%;
+
+  margin: auto;
+  
+
+  place-items: center;
+  background-color: #7599c2;
+}
+
+.items {
+  width: 85%;
+  background: white;
+ margin: auto;
+ height: max-content;
+ padding-top: 10px;
+}
+
+.items-head p{
+
+  padding: 5px 20px;
+  margin: 10px;
+  color: #326899;
+  font-weight: bold;
+  font-size: 4vw;
+}
+
+hr {
+    width: 35%;
+    height: 3px;
+    background-color: #7599c2;
+    border-radius: 1px;
+    border: 0;
+    
+  margin: 0px 30px;
+  
+}
+
+.items-body {
+  padding: 10px;
+  margin: 10px;
+  display: grid;
+  grid-gap: 10px;
+}
+
+.items-body-content {
+  padding: 10px;
+  padding-right: 0px;
+  display: grid;
+  grid-template-columns: 10fr 1fr;
+  // background-color: lightblue;
+  font-size: 1.1em;
+  grid-gap: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  
+}
+
+
+
+.items-body-content i {
+  align-self: center;
+  font-size: 15px;
+ 
+  font-weight: bold;
+  animation: icon 1.5s infinite forwards;
+}
+
+@keyframes icon {
+  0%,100%{
+    transform: translate(0px);
+  }
+  50% {
+    transform: translate(3px);
+  }
+}
+
+
+
+.footer h4 {margin-top: 2vw; font-size: 1.4vw; text-align: center; opacity: 0.5;}
+
+
+.footer h2 {
+font-size: 1.1em;
+
+ width: 80%;
+text-align: center;
+}
+
+ @media (min-width: 320px) and (max-width: 435px) {
+.footer h2 {
+font-size: 2em;
+
+text-align: center;
+}  }
+
+
+
+.icons {
+  margin-top: 2vw;
+
+}
+.icons a {
+    display: inline-block;
+    width: 3vw;
+    height: 3vw;
+    cursor: pointer;
+    background-color: #f2f2f2;
+    border-radius: 1px;
+    font-size: 1.8vw;
+    color: #a9a9a9;
+    text-align: center;
+    line-height: 3.2vw;
+    margin-right: 0.3vw;
+}
+
+
+ @media (min-width: 320px) and (max-width: 435px) {
+.icons a {
+    display: inline-block;
+    width: 5vw;
+    height: 5vw;
+    cursor: pointer;
+    background-color: #f2f2f2;
+    border-radius: 1px;
+    font-size: 3.5vw;
+    color: #a9a9a9;
+    text-align: center;
+    line-height: 5vw;
+    margin-right: 1vw;
+  
+}}
+
+
+.footer{
+	font-family: Basier, sans-serif;
+    font-weight: normal;
+	overflow-x:hidden;
+    font-size: 1.5vw;
+background-color: #f2f2f2;
+overflow-y: hidden;
+}
+
+
+
+
+#column-1 {
+  width: 20%;
+  padding-bottom: 2vw;
+  float: left;
+  min-height: 100%;
+text-align: center;
+}
+
+#column-2 {
+  
+  width: 60%;
+  min-height: 100%;
+  float: left;
+}
+
+#column-3 {
+  width: 20%;
+  min-height: 100%;
+  float: left;
+  padding-top: 2.5vw;
+
+
+}
+
+.buttonc { background-color: #c3d1e7;
+text-transform: uppercase;
+
+color: white;
+border-radius: 1px;
+cursor: pointer;
+text-align: center;
+
+
+}
+
+.buttonb { background-color: #c3d1e7;
+text-transform: uppercase;
+font-size: 1.2em;
+color: white;
+border-radius: 1px;
+cursor: pointer;
+text-align: center;
+padding: 0.5em 0.8em ;
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<div class="act"> <header>
+
+        <ul class="menu menu-hover-lines">
+            <li><a href="../index.html#section-1">Home</a>
+            </li>
+            <li><a href="../index.html#section-2">About</a>
+            </li>
+            <li><a href="../index.html#section-3">Directions</a>
+            </li>
+        </ul>
+        
+        
+        <a href="articleu.html"><div class="link">Ukr</div></a>
+        
+    </header></div>
+
+
+
+
+  <h1>Cyber-physical systems</h1>
+
+<div class="wrapper">
+  <div class="content-wrapper">
+    <span class="first-character">A</span><p>t the present stage of the development of industry, information technology becomes an integral part of the automation system of production. Industrial automation has its own history of commercial technology when it becomes widely available. For example, tablet PCs with Wi-Fi are now widely used to improve performance and serviceability.</p>
+    
+    <p>
+      The further combination of information and production technology creates the potential that can really change the chain from production through suppliers to customers at each stage of their interaction. 
+    </p>
+    
+
+    <p>Over the past few years, there has been increased activity in the field of the creation of cyber-physics systems, combinations of physical and cybernetic components that provide the organization of measurement and computing processes, and protect the storage of official information.</p>
+
+
+<div class="image-left">
+      <img src=" https://images.unsplash.com/photo-1455594408994-253112b1b26e?ixlib=rb-0.3.5&s=684c702ec81f5edb47d28dbed6c2a7ba&auto=format&fit=crop&w=750&q=80" /> 
+Cyber-physical systems are physical and engineered systems whose operations are monitored, coordinated, controlled and integrated by a computing and communication core. Just as the internet transformed how humans interact with one another, cyber-physical systems will transform how we interact with the physical world around us.    </div>
+
+
+
+    <p>Building on the concept of cyber-physics systems, leading research institutions and groups around the world are focusing their efforts on finding new areas for the development of information and computing technologies by integrating and integrating different subsystems into a single, decentralized and flexible system. </p>
+
+<p>Integration of physical processes and computing is not something new. The term "embedded systems" has long been used to describe such systems. Among their successful applications are communication systems, home automation, armaments, air and land transport, and so on. The first developments in this area include built-in built-in processors and computer systems implemented in technical systems for both civilian and military purposes. In particular, it is the development and implementation of a number of spectrum analysis processors for radar signals, the development and implementation of a number of programmable processors for digital signal processing, the creation of a wide range of specialized processors for multimodal spectral analysis of signals and images, encryption and encoding of information, etc.</p>
+
+        
+    <p>In the manufacturing environment, CPSs can improve processes by sharing real-time information among the industrial machines, manufacturing supply chain, suppliers, business systems, and customers. Also, CPSs can improve these processes by self-monitoring and controlling the entire production processes and then adapting production to satisfy customers' preferences. CPSs provide a higher degree of visibility and control on supply chains, improving the traceability and security of goods..</p>
+
+<p>In the healthcare environment, CPSs are used for real-time and remote monitoring of the physical conditions of patients to limit patient hospitalization (for example, for patients who suffer from Alzheimer's disease) or to improve treatments for disabled and elderly patients. Moreover, CPSs are used in research in the neuroscience field to better understand human functions with the support of brain-machine interfaces and therapeutic robotics.</p>
+<div class="image-right">
+      <img src="https://images.unsplash.com/photo-1461214626925-421f126d9f11?ixlib=rb-0.3.5&s=e178082b02fc5259e325a471223e052c&auto=format&fit=crop&w=750&q=80" /> 
+     Another key element that influenced the formation of the concept of cyber-physics systems is the modern telecommunication facilities. Today, these tools provide the interaction of components of the system of virtually arbitrary placement using both wire and wireless communication.
+
+
+
+    </div>
+
+<p>In the renewable energy environment, smart grids are CPSs where sensors and other devices monitor the grid to control it and provide better reliability and improve the energy efficiency.</p>
+
+<p>In smart building environments, smart devices and CPSs interact to reduce energy consumption, to increase safety and security, and to improve inhabitants comfort. For example, with CPSs you can enable energy monitoring and control systems usage, which help you achieve zero-energy buildings, or you can determine the extent of damage that buildings suffer after unexpected events and help prevent structural failures.</p>
+
+<p>In the transportation environment, individual vehicles and the infrastructure can communicate with each other, sharing real-time information about traffic, location, or issues, in order to prevent accidents or congestion, improve safety, and ultimately save money and time.</p>
+
+<p>In the agriculture environment, CPSs can be used to create more modern and precise agriculture. CPSs can collect fundamental information about the climate, the ground, and other data, in order to realize more accurate systems of agricultural management. CPSs can constantly monitor different resources, such as watering, humidity, plant health and others, through sensors and, thus, keep the ideal environmental values.</p>
+
+<p>In computer networks, CPSs can boost cyber environments to better understand systems and users' behaviors, which can help improve performances and resource management. For example, applications can be optimized to work in relation to the contexts and to the users' actions, or to monitor available resources. Moreover, popular social networks and e-commerce websites store users' navigation information and users' web content, analyzes that information, and then tries to predict interests and make recommendation for friends, posts, links, pages, events, or products.</p>
+
+
+
+
+
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+       <div class="container">
+          
+<div class="items">
+    <div class="items-head">
+      <p>READ NEXT</p>
+      <hr>
+    </div>
+    
+    <div class="items-body">
+      <div class="items-body-content">
+        <span><a href="article2.html">Big data analysis</a></span>
+        <i class="fa fa-angle-right"></i>
+      </div>
+      <div class="items-body-content">
+        <span><a href="article3.html">Internet of things</a></span>
+        <i class="fa fa-angle-right"></i>
+      </div>
+      <div class="items-body-content">
+        <span><a href="article4.html">Artificial intelligence</a></span>
+        <i class="fa fa-angle-right"></i>
+      </div>
+      
+    </div>
+  </div>
+</div>
+   
+    <footer class="footer">
+
+
+
+<center>
+
+
+
+  <h2> This website was created for those who are not indifferent to their future, and are interested in technological progress. It was made for spreading knowledge about Fourth industrial revolution.</h2>
+
+         <div class="icons">      
+ <a href="http://www.facebook.com/sharer.php?u=https://industry4.000webhostapp.com/" rel="nofollow" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/intent/tweet?text=https://industry4.000webhostapp.com/"><i class="fa fa-twitter"></i></a>
+                <a href="https://plusone.google.com/_/+1/confirm?hl=ru&url=https://industry4.000webhostapp.com"><i class="fa fa-google-plus"></i></a>
+                <a href="http://pinterest.com/pin/create/link/?url=https://industry4.000webhostapp.com"><i class="fa fa-pinterest"></i></a>
+
+            </div>
+
+
+<h4> &copy 2018 Olha Polischuck all rights reserved</h4>
+
+</center>
+
+
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
+										</div>
+                
+				
+							
+	
+		</footer>
+</body>
+
+ 
+
+</html>
