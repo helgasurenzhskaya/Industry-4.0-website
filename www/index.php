@@ -17,6 +17,7 @@ $loader->registerDirs(
     [
         APP_PATH . 'controllers' . DIRECTORY_SEPARATOR,
         APP_PATH . 'models' . DIRECTORY_SEPARATOR,
+        APP_PATH . 'services' . DIRECTORY_SEPARATOR,
     ]
 );
 
@@ -54,9 +55,28 @@ $di->set(
                 'username' => 'yankos0_db',
                 'password' => '2rCX5Fku',
                 'dbname' => 'yankos0_db',
+                'charset' => 'utf8',
             ]
         );
         return $db;
+    }
+);
+
+$di->set(
+    'lang',
+    function () {
+        return new LangService(
+            [
+                [
+                    'code' => 'uk',
+                    'title' => 'Українська',
+                ],
+                [
+                    'code' => 'en',
+                    'title' => 'English',
+                ],
+            ]
+        );
     }
 );
 
