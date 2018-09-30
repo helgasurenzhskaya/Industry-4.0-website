@@ -1,6 +1,7 @@
 <?php
 
 use Phalcon\Mvc\Model;
+use Phalcon\Di;
 
 class Menu extends Model 
 {
@@ -20,22 +21,41 @@ class Menu extends Model
         return $this->id;
     }
 
-    public function getTitle($lang) 
+    public function getTitle($lang = null): string
     {
+        $tmp_field = 'title_';
 
+        if (is_null($lang) === true) {
+            $lang_service = Di::getDefault()->get('lang');
+            $lang = $lang_service->getCurrent();
+        }
+
+        if (gettype($lang) === 'string') {
+            $tmp_field = $tmp_field . $lang;
+        } else if ($lang instanceof Lang === true) {
+            $tmp_field = $tmp_field . $lang->getId();
+        } else {
+            throw new TypeError('wrong lang type');
+        }
+
+        if (property_exists($this, $tmp_field) === false) {
+            throw new UnexpectedValueException('unknown lang');
+        }
+
+        return $this->$tmp_field;
     }
 
-    public function getUrl() 
+    public function getUrl(): string 
     {
-
+        return $this->url;
     }
 
-    public function getSort() 
+    public function getSort(): int
     {
-
+        return $this->sort;
     }
 
-    public function setId(int $value): void 
+    public function setId(int $value)
     {
         $this->id = $value;
     }
@@ -45,13 +65,15 @@ class Menu extends Model
 
     }
 
-    public function setUrl() 
+    public function setUrl(string $url)
     {
-
+        $this->url = $url;
     }
 
-    public function setSort() 
+    public function setSort(int $sort)
     {
-
+        $this->sort = $sort;
     }
 }
+
+
