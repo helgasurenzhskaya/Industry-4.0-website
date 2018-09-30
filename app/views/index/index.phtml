@@ -1,0 +1,6 @@
+kladsjldjasldjasldj
+<?php
+$menus = Menu::find();
+foreach ($menus as $menu):?>
+    <?= $menu->getTitle(); ?>
+<?php endforeach; ?>
