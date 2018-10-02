@@ -1,13 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="<?= $this->getDi()->get('lang')->getCurrent()->getId() ?>">
 <head>
+    <base href="<?= $this->getDi()->get('url')->getBaseUri() ?>">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Industry 4.0</title>
+    <meta name="keywords" content="Industry 4.0, technical revolution, industrial revolution, internet of things, big data, cloud computing, cyberphysical systems, artificial intelligence, advanced robotics, Індустрія 4.0, технічна революція, промислова революція, великі дані">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link rel="stylesheet" type="text/css" media="screen" href="main.css" />-->
+    <link rel="shortcut icon" href="content/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet prefetch" type="text/css" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet prefetch" type="text/css" media="all" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/css/style.css">
+    <style>
+    .button a {
+        width: 17vw;
+        padding: 1.2vw 4.8vw;
+        text-align: center;
+        color: white;
+        border: solid 2px white;
+        z-index: 1;
+        text-decoration: none;
+    }
+    </style>
 </head>
 <body>
+    <header>
+        <?php $menus = Menu::find(); 
+        if (count($menus) > 0):?>
+            <ul id="nav" class="menu menu-hover-lines">
+                <?php foreach ($menus as $menu):?>
+                    <li <?php //class="active"?>><a class="js-anchor-link" href="<?= $menu->getUrl() ?>"><?= $menu->getTitle(); ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+        <?php $langs = $this->getDi()->get('lang')->getAll(); 
+        if (count($langs) > 1): 
+            foreach ($langs as $lang): 
+                if ($this->getDi()->get('lang')->getCurrent()->getId() === $lang->getId()):
+                    continue;
+                endif;?>
+                <a href="#"><div class="link"><?= $lang->getTitle() ?></div></a>
+            <?php endforeach;
+        endif; ?>
+        <video autoplay playsinline muted loop preload poster="content/video.jpg">
+            <source src="content/video.mp4">
+            <source src="content/video.webm">
+        </video>
+ 	    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 80" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <mask id="mask" x="0" y="0" width="100%" height="100%">
+                    <rect x="0" y="0" width="100%" height="100%">
+                    <text x="50%" y="35%" dominant-baseline="middle" alignment-baseline="middle" text-anchor="middle">IN4.0</text>
+                </mask>
+            </defs>
+            <rect x="0" y="0" width="100%" height="100%">
+        </svg>
+    </header>
     <?= $this->getContent(); ?>
+
+    <section id="section-3" class="directions"><div class="grid-flex">
+        <div class="container">
+            <img src="content/photo1.jpg" alt="" />
+            <p class="title">cyber-physical systems</p>
+            <div class="overlay"></div>
+            <div class="button"><a href="#"> LEARN MORE </a></div>
+        </div>
+        <div class="container">
+            <img src="content/photo2.jpg" alt="" />
+            <p class="title">big data analysis</p>
+            <div class="overlay"></div>
+            <div class="button"><a href="#"> LEARN MORE  </a></div>
+        </div>
+        <div class="container">
+            <img src="content/photo3.jpg" alt="" />
+            <p class="title">internet of things</p>
+            <div class="overlay"></div>
+            <div class="button"><a href="#"> LEARN MORE  </a></div>
+        </div>
+        <div class="container">
+            <img src="content/photo4.jpg" alt="" />
+            <p class="title">artificial intelligence</p>
+            <div class="overlay"></div>
+            <div class="button"><a href="#"> LEARN MORE </a></div>
+        </div>
+    </section>
+    <footer class="footer">
+        <center>
+            <h2> This website was created for those who are not indifferent to their future, and are interested in technological progress. It was made for spreading knowledge about Fourth industrial revolution.</h2>
+            <div class="icons">      
+                <a href="http://www.facebook.com/sharer.php?u=https://industry4.000webhostapp.com/" rel="nofollow" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/intent/tweet?text=https://industry4.000webhostapp.com/"><i class="fa fa-twitter"></i></a>
+                <a href="https://plusone.google.com/_/+1/confirm?hl=ru&url=https://industry4.000webhostapp.com"><i class="fa fa-google-plus"></i></a>
+                <a href="http://pinterest.com/pin/create/link/?url=https://industry4.000webhostapp.com"><i class="fa fa-pinterest"></i></a>
+            </div>
+            <h4> &copy 2018 Olha Polischuck all rights reserved</h4>
+        </center>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/tindex.js"></script>
+    <script>
+    /*
+    Smooth scroll functionality for anchor links (animates the scroll
+    rather than a sudden jump in the page)
+    */
+    $(".js-anchor-link").click(function(e){
+        e.preventDefault();
+        var target = $($(this).attr("href"));
+        if(target.length){
+            var scrollTo = target.offset().top;
+            $("body, html").animate({scrollTop: scrollTo+"px"}, 800);
+        }
+    });
+    </script>
 </body>
 </html>
