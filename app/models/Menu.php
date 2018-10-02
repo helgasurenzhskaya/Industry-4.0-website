@@ -60,9 +60,17 @@ class Menu extends Model
         $this->id = $value;
     }
 
-    public function setTitle($lang) 
+    public function setTitle(string $value, $lang) 
     {
+        $tmp_field = 'title_';
 
+        if (gettype($lang) === 'string') {
+            $tmp_field = $tmp_field . $lang;
+        } else if ($lang instanceof Lang === true) {
+            $tmp_field = $tmp_field . $lang->getId();
+        }
+
+        $this->$tmp_field = $value;
     }
 
     public function setUrl(string $url)

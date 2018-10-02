@@ -20,9 +20,24 @@ class Page extends Model
         return $this->id;
     }
 
-    public function getText($lang) 
+    public function getText($lang = null): string
     {
+        $tmp_field = 'text_';
 
+        if (is_null($lang) === true) {
+            $lang_service = Di::getDefault()->get('lang');
+            $lang = $lang_service->getCurrent();
+        }
+
+        if (gettype($lang) === 'string') {
+            $tmp_field = $tmp_field . $lang;
+        } else if ($lang instanceof Lang === true) {
+            $tmp_field = $tmp_field . $lang->getId();
+        } else {
+            throw new Exception('wrong lang');
+        }
+
+        return $this->$tmp_field;
     }
 
     public function getName(): string
@@ -40,10 +55,19 @@ class Page extends Model
         $this->id = $value;
     }
 
-    public function setText($lang) 
+    public function setText(string $value, $lang) 
     {
+        $tmp_field = 'text_';
 
+        if (gettype($lang) === 'string') {
+            $tmp_field = $tmp_field . $lang;
+        } else if ($lang instanceof Lang === true) {
+            $tmp_field = $tmp_field . $lang->getId();
+        }
+
+        $this->$tmp_field = $value;
     }
+
 
     public function setName(string $name)
     {
