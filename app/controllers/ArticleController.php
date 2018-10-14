@@ -1,0 +1,15 @@
+<?php
+
+use Phalcon\Mvc\Controller;
+
+class ArticleController extends Controller 
+{
+    public function showAction() 
+    {
+        $article = Article::findFirst($this->di->get('dispatcher')->getParam('article_id'));
+        if ($article === false) {
+            $this->dispatcher->forward(['controller' => 'error', 'action' => 'show404']);
+        }
+        $this->view->setVar('article', $article);
+    }
+}
