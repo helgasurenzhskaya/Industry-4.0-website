@@ -58,6 +58,9 @@ $di->setShared(
                 'password' => '2rCX5Fku',
                 'dbname' => 'yankos0_db',
                 'charset' => 'utf8',
+                'options' => [
+                    PDO::ATTR_PERSISTENT => 1,
+                ],
             ]
         );
         return $db;
