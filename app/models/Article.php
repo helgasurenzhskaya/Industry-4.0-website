@@ -77,6 +77,20 @@ class Article extends Model
         return $this->$tmp_field;
     }
 
+    public function getImageLink(): string
+    {
+        return Di::getDefault()->get('url')->getStatic('content/photo' . $this->getId() . '.jpg');
+    }
+
+    public function getLink(): string
+    {
+        return Di::getDefault()->get('url')->get([
+            'for' => 'article/show',
+            'language' => Di::getDefault()->get('lang')->getCurrent()->getId(),
+            'article_id' => $this->getId(),
+        ]);
+    }
+
     public function setId(int $value)
     {
         $this->id = $value;
