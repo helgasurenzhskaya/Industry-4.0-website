@@ -17,6 +17,6 @@
         "robmorgan/phinx": "~0.10.0"
     },
     "require-dev": {
-        "phalcon/devtools": "^3"
+        "phalcon/ide-stubs": "~3.4.0"
     }
 }
