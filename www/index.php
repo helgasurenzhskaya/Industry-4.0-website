@@ -6,6 +6,8 @@ use Phalcon\Mvc\View;
 use Phalcon\Mvc\Url as Url;
 use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 use Phalcon\Mvc\Application;
+use Phalcon\Http\Response\Cookies;
+use Phalcon\Mvc\Router;
 
 // Define some absolute path constants to aid in locating resources
 define('BASE_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
@@ -27,7 +29,7 @@ $loader->register();
 $di = new Di();
 
 // Setup the view component
-$di->set(
+$di->setShared(
     'view',
     function () {
         $view = new View();
@@ -37,7 +39,7 @@ $di->set(
 );
 
 // Setup a base URI
-$di->set(
+$di->setShared(
     'url',
     function () {
         $url = new Url();
@@ -46,7 +48,7 @@ $di->set(
     }
 );
 
-$di->set(
+$di->setShared(
     'db',
     function () {
         $db = new DbAdapter(
@@ -62,18 +64,83 @@ $di->set(
     }
 );
 
-$di->set(
+$di->setShared('router', function () use ($di) {
+    /** @var Language $lang */
+    $lang = $di->get('lang');
+
+    /** @var string $_langs строчка языков */
+    $_langs = implode(
+        '|', 
+        array_map(
+            function (lang $item): string {
+                return $item->getId();
+            }, 
+            $lang->getAll()
+        )
+    );
+
+    $router = new Router(false);
+    $router->removeExtraSlashes(true);
+    
+    $router->add('/{language:(' . $_langs . ')}')->setName('home');
+
+    $router->add('/', [
+        'controller' => 'index',
+        'action' => 'index',
+    ]);
+
+    $router->add('/{language:(' . $_langs . ')}/article/{article}', [
+        'controller' => 'article',
+        'action' => 'show',
+        'lang' => '',
+    ])->setName('article/show');
+
+    $router->add('/{language:(' . $_langs . ')}/article', [
+        'controller' => 'article',
+        'action' => 'list',
+        'lang' => '',
+    ])->setName('article/list');
+
+    $router->add('/sitemap.xml', [
+        'controller' => 'index',
+        'action' => 'sitemap',
+    ]);
+
+    $router->add('/robots.txt', [
+        'controller' => 'index',
+        'action' => 'robots',
+    ]);
+    
+    $router->notFound(['controller' => 'error', 'action' => 'show404']);
+
+    return $router;
+});
+
+$di->setShared('cookies', function () {
+    $cookies = new Cookies();
+    $cookies->useEncryption(false);
+    return $cookies;
+});
+
+$di->setShared(
     'lang',
     function () {
         return new LangService(
             [
-                [
-                    'code' => 'uk',
-                    'title' => 'Українська',
-                ],
-                [
-                    'code' => 'en',
-                    'title' => 'English',
+                'default' => 'uk',
+                'langs' => [
+                    [
+                        'code' => 'uk',
+                        // 'locale' => 'uk_UA',
+                        // 'time_zone' => 'Europe/Kiev',
+                        'title' => 'Українська',
+                    ],
+                    [
+                        'code' => 'en',
+                        // 'locale' => 'en_GB',
+                        // 'time_zone' => 'Europe/London',
+                        'title' => 'English',
+                    ],
                 ],
             ]
         );
@@ -81,5 +148,9 @@ $di->set(
 );
 
 $application = new Application($di);
-$response = $application->handle();
+// try {
+    $response = $application->handle();
+// } catch (Exception $e) {
+//     $response = $application->handle('error/show500');
+// }
 $response->send();
