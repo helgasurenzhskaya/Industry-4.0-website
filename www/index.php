@@ -131,14 +131,10 @@ $di->setShared(
                 'langs' => [
                     [
                         'code' => 'uk',
-                        // 'locale' => 'uk_UA',
-                        // 'time_zone' => 'Europe/Kiev',
                         'title' => 'Українська',
                     ],
                     [
                         'code' => 'en',
-                        // 'locale' => 'en_GB',
-                        // 'time_zone' => 'Europe/London',
                         'title' => 'English',
                     ],
                 ],
