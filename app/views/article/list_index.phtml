@@ -1,0 +1,16 @@
+<?php
+$articles = Article::find();
+if ($articles->count() > 0): ?>
+<section id="section-3" class="directions">
+    <div class="grid-flex">
+        <?php foreach($articles as $article): ?>
+            <div class="container">
+                <img src="<?= $article->getImageLink() ?>" alt="<?= htmlspecialchars($article->getTitle()) ?>">
+                <p class="title"><?= $article->getTitle() ?></p>
+                <div class="overlay"></div>
+                <div class="button"><a href="<?= $article->getLink() ?>"> LEARN MORE </a></div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
+<?php endif; ?>
