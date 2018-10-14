@@ -99,10 +99,11 @@ class LangService
                 }
             }
             if ($tmp_lang === null || $this->getByCode($tmp_lang) === null) {
+                $tmp_lang_client = null;
                 if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
                     $tmp_lang_client = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
                 }
-                if ($this->getByCode($tmp_lang_client) !== null) {
+                if ($tmp_lang_client !== null && $this->getByCode($tmp_lang_client) !== null) {
                     $tmp_lang = $tmp_lang_client;
                 } else {
                     $tmp_lang = $this->getDefault();
