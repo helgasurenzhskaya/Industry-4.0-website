@@ -92,17 +92,11 @@ $di->setShared('router', function () use ($di) {
         'action' => 'index',
     ]);
 
-    $router->add('/{language:(' . $_langs . ')}/article/{article}', [
+    $router->add('/{language:(' . $_langs . ')}/article/{article_id}', [
         'controller' => 'article',
         'action' => 'show',
         'lang' => '',
     ])->setName('article/show');
-
-    $router->add('/{language:(' . $_langs . ')}/article', [
-        'controller' => 'article',
-        'action' => 'list',
-        'lang' => '',
-    ])->setName('article/list');
 
     $router->add('/sitemap.xml', [
         'controller' => 'index',
