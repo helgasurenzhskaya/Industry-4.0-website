@@ -1,7 +1,7 @@
 @font-face {
     font-family: Basier;
-    src: url(../font/basier.ttf)
-  }
+    src: url(../font/basier.ttf);
+}
   
   *,.timeline__content-desc,.timeline-header__title {
     margin: 0
@@ -15,7 +15,7 @@
     box-sizing: border-box
   }
   
-  html,header,header video,svg,.container-arrow,.timeline-item:before,.timeline-container,.timeline-container:before,.timeline-header,.overlay,.menu-hover-lines .active a::after,.menu-hover-lines .active a::before,.menu-hover-lines a:hover::after,.menu-hover-lines a:hover::before {
+  html,header,video,svg,.container-arrow,.timeline-item:before,.timeline-container,.timeline-container:before,.timeline-header,.overlay,.menu-hover-lines .active a::after,.menu-hover-lines .active a::before,.menu-hover-lines a:hover::after,.menu-hover-lines a:hover::before {
     width: 100%
   }
   
@@ -28,7 +28,7 @@
   }
   
   body,svg text,.timeline__content-title,.timeline__content-desc,.timeline-item:before,.timeline-header__title,.footer {
-    font-family: Basier,sans-serif
+    font-family: Basier, sans-serif
   }
   
   body,header,.timeline {
@@ -68,7 +68,7 @@
     display: inline
   }
   
-  .link,header video,svg {
+  .link {
     margin-top: 5%
   }
   
