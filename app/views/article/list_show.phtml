@@ -8,7 +8,7 @@ if ($articles->count() > 0): ?>
             <hr>
         </div>
         <div class="items-body">
-            <?php foreach($articles as $article): 
+            <?php foreach ($articles as $article): 
                 if ($article_skip_id === $article->getId()): 
                     continue;
                 endif; ?>
