@@ -1,6 +1,7 @@
 <?php
 
 use Phalcon\Mvc\Model;
+use Phalcon\Di;
 
 class Page extends Model 
 {
