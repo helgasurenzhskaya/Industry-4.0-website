@@ -115,35 +115,6 @@ class Init extends AbstractMigration
                     </div>
                 </div>
             </section>
-            //section-3 is already done, but ?
-            <section id="section-3" class="directions">
-                <div class="grid-flex">
-                    <div class="container">
-                        <img src="#" alt="" />
-                        <p class="title">Кіберфізичні системи</p>
-                        <div class="overlay"></div>
-                        <div class="button"><a href="../articles/articleu.html"> ДІЗНАТИСЬ БІЛЬШЕ </a></div>
-                    </div>
-                    <div class="container">
-                        <img src="3" alt="" />
-                        <p class="title">Аналіз великих даних</p>
-                        <div class="overlay"></div>
-                        <div class="button"><a href="../articles/articleu2.html"> ДІЗНАТИСЬ БІЛЬШЕ </a></div>
-                    </div>
-                    <div class="container">
-                        <img src="#" alt="" />
-                        <p class="title">Інтернет речей</p>
-                        <div class="overlay"></div>
-                        <div class="button"><a href="../articles/articleu3.html"> ДІЗНАТИСЬ БІЛЬШЕ </a></div>
-                    </div>
-                    <div class="container">
-                        <img src="#" alt="" />
-                        <p class="title">Штучний інтелект</p>
-                        <div class="overlay"></div>
-                        <div class="button"><a href="../articles/articleu4.html"> ДІЗНАТИСЬ БІЛЬШЕ </a></div>
-                    </div>
-                </div>
-            </section>
             <footer class="footer">
                 <h2> Цей веб-сайт був створений для тих, хто не байдужий до свого майбутнього і зацікавлений у технічному прогресі. Його було зроблено для поширення знань про Четверту технічну революцію.</h2>
                 <div class="icons">      
@@ -226,34 +197,6 @@ class Init extends AbstractMigration
                             <p class="timeline__content-desc">The start of using neural networks and 3D Printing, inventing of quantum computers and implementing of robotics in our everyday life.</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <section id="section-3" class="directions">
-                <div class="grid-flex">
-                    <div class="container">
-                        <img src="#" alt="" />
-                        <p class="title">cyber-physical systems</p>
-                        <div class="overlay"></div>
-                        <div class="button"><a href="articles/article.html"> LEARN MORE </a></div>
-                    </div>
-                    <div class="container">
-                        <img src="#" alt="" />
-                        <p class="title">big data analysis</p>
-                        <div class="overlay"></div>
-                        <div class="button"><a href="articles/article2.html"> LEARN MORE  </a></div>
-                    </div>
-                    <div class="container">
-                        <img src="#" alt="" />
-                        <p class="title">internet of things</p>
-                        <div class="overlay"></div>
-                        <div class="button"><a href="articles/article3.html"> LEARN MORE  </a></div>
-                    </div>
-                    <div class="container">
-                        <img src="#" alt="" />
-                        <p class="title">artificial intelligence</p>
-                        <div class="overlay"></div>
-                        <div class="button"><a href="articles/article4.html"> LEARN MORE </a></div>
                     </div>
                 </div>
             </section>
