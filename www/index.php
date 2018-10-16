@@ -43,7 +43,7 @@ $di->setShared(
     'url',
     function () {
         $url = new Url();
-        $url->setBaseUri('/');
+        $url->setBaseUri('http://' . $_SERVER['SERVER_NAME'] . '/');
         return $url;
     }
 );
@@ -137,6 +137,19 @@ $di->setShared(
                 ],
             ]
         );
+    }
+);
+
+$di->setShared(
+    'translate',
+    function () use ($di) {
+        $lang = $di->get('lang');
+        $file = APP_PATH . 'messages' . DIRECTORY_SEPARATOR . $lang->getCurrent()->getId() . '.php';
+        $translate = new \Phalcon\Translate\Adapter\NativeArray([
+            'content' => require_once $file,
+        ]);
+
+        return $translate;
     }
 );
 

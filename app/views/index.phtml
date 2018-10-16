@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="<?= $this->getDi()->get('lang')->getCurrent()->getId() ?>">
+<html lang="<?= $this->lang->getCurrent()->getId() ?>">
 <head>
-    <base href="<?= $this->getDi()->get('url')->getBaseUri() ?>">
+    <base href="<?= $this->url->path($this->url->get()) ?>">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Industry 4.0</title>
@@ -26,9 +26,9 @@
 <body>
     <header>
         <?php $menus = Menu::find(); 
-        if (count($menus) > 0):?>
+        if (count($menus) > 0): ?>
             <ul id="nav" class="menu menu-hover-lines">
-                <?php foreach ($menus as $menu):?>
+                <?php foreach ($menus as $menu): ?>
                     <li <?php //class="active"?>><a class="js-anchor-link" href="<?= $menu->getUrl() ?>"><?= $menu->getTitle(); ?></a></li>
                 <?php endforeach; ?>
             </ul>
@@ -53,31 +53,39 @@
         endif; ?>
     </header>
     <?= $this->getContent(); ?>
-    
     <footer class="footer">
-            <h2> This website was created for those who are not indifferent to their future, and are interested in technological progress. It was made for spreading knowledge about Fourth industrial revolution.</h2>
+            <h2><?= $this->translate->_('footer.about') ?></h2>
             <div class="icons">      
-                <a href="http://www.facebook.com/sharer.php?u=https://industry4.000webhostapp.com/" rel="nofollow" target="_blank"><i class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/intent/tweet?text=https://industry4.000webhostapp.com/"><i class="fa fa-twitter"></i></a>
-                <a href="https://plusone.google.com/_/+1/confirm?hl=ru&url=https://industry4.000webhostapp.com"><i class="fa fa-google-plus"></i></a>
-                <a href="http://pinterest.com/pin/create/link/?url=https://industry4.000webhostapp.com"><i class="fa fa-pinterest"></i></a>
+                <a href="http://www.facebook.com/sharer.php?u=<?= $this->getDi()->get('url')->getBaseUri() ?>" rel="nofollow" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/intent/tweet?text=<?= $this->getDi()->get('url')->getBaseUri() ?>"><i class="fa fa-twitter"></i></a>
+                <a href="https://plusone.google.com/_/+1/confirm?hl=ru&url=<?= $this->getDi()->get('url')->getBaseUri() ?>"><i class="fa fa-google-plus"></i></a>
+                <a href="http://pinterest.com/pin/create/link/?url=<?= $this->getDi()->get('url')->getBaseUri() ?>"><i class="fa fa-pinterest"></i></a>
             </div>
-            <h4> &copy 2018 Olha Polischuck all rights reserved</h4>
+            <h4><?= $this->translate->_('footer.copyright') ?></h4>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="js/tindex.js"></script>
+    <script src="assets/js/tindex.js"></script>
     <script>
-    /*
-    Smooth scroll functionality for anchor links (animates the scroll
-    rather than a sudden jump in the page)
-    */
-    $(".js-anchor-link").click(function(e){
-        e.preventDefault();
-        var target = $($(this).attr("href"));
-        if(target.length){
-            var scrollTo = target.offset().top;
-            $("body, html").animate({scrollTop: scrollTo+"px"}, 800);
-        }
+    $(document).ready(function () {
+        var jq_html = $("html");
+        /**
+         * Smooth scroll functionality for anchor links (animates the scroll
+         * rather than a sudden jump in the page)
+         */
+        $(".js-anchor-link").click(function (e) {
+            e.preventDefault();
+            var jq_this = $(this);
+            var href = jq_this.attr("href");
+            var target = [];
+            var i_anchor = href.indexOf("#");
+            if (i_anchor > -1) {
+                target = $(href.substring(i_anchor));
+            }
+            if (target.length){
+                var scrollTo = target.offset().top;
+                jq_html.animate({scrollTop: scrollTo+"px"}, 800);
+            }
+        });
     });
     </script>
 </body>
