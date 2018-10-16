@@ -33,13 +33,22 @@
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
-        <?php $langs = $this->getDi()->get('lang')->getAll(); 
+        <?php 
+        // Current URI.
+        $current_uri = $this->router->getRewriteUri();
+        // If current URI does not containt lang code let's add current lang code.
+        if (strpos($current_uri, '/' . $this->lang->getCurrent()->getId()) === FALSE):
+            $current_uri .= $this->lang->getCurrent()->getId();
+        endif;
+
+        $current_uri = rtrim($current_uri, '/').'/';
+        $langs = $this->getDi()->get('lang')->getAll(); 
         if (count($langs) > 1): 
             foreach ($langs as $lang): 
                 if ($this->getDi()->get('lang')->getCurrent()->getId() === $lang->getId()):
                     continue;
                 endif;?>
-                <a href="#"><div class="link"><?= $lang->getTitle() ?></div></a>
+                <a href="<?= rtrim(str_replace('/'.$this->lang->getCurrent()->getId().'/', '/'.$lang->getId().'/', $current_uri), '/');?>"><div class="link"><?= $lang->getTitle() ?></div></a>
             <?php endforeach;
         endif; ?>
     </header>
