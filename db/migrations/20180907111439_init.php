@@ -9,26 +9,30 @@ class Init extends AbstractMigration
         $menus = $this->table('menus');
         $menus->addColumn('title_uk', 'string');
         $menus->addColumn('title_en', 'string');
-        $menus->addColumn('url', 'string');
+        $menus->addColumn('url_uk', 'string');
+        $menus->addColumn('url_en', 'string');
         $menus->addColumn('sort', 'integer', ['default' => 100]);
 
         $menus->insert([
             [
                 'title_uk' => 'Головна',
                 'title_en' => 'Home',
-                'url' => '',
+                'url_uk' => '\uk',
+                'url_en' => '\en',
                 'sort' => 10,
             ],
             [
                 'title_uk' => 'Інформація',
                 'title_en' => 'About',
-                'url' => '#about',
+                'url_uk' => '\uk#about',
+                'url_en' => '\en#about',
                 'sort' => 30,
             ],
             [
                 'title_uk' => 'Напрямки',
                 'title_en' => 'Directions',
-                'url' => '#direction',
+                'url_uk' => '\uk#direction',
+                'url_en' => '\en#direction',
                 'sort' => 50,
             ],
         ]);
@@ -46,7 +50,7 @@ class Init extends AbstractMigration
                 'name' => 'Industry 4.0',
                 // 'image' => '',
                 'text_uk' => '
-                <div>
+                <div style="position:relative;">
                     <video autoplay playsinline muted loop preload poster="#">
                         <source src="content/video.mp4" type="video/mp4">
                         <source src="content/video.webm" type="video/webm">
@@ -104,6 +108,30 @@ class Init extends AbstractMigration
                     </a>
                 </section>
                 <section id="section-2" class="section" >
+                    <h2 class="atitle">What is it?</h2>
+                    <p>Industry 4.0 is a technical revolution that embodies automation of production,
+                        the dissemination of Internet of things, analysis and processing of Big data,
+                        the use of neural networks and the creation of artificial intelligence.
+                        The purpose of this revolution is to unite all technologies into one self-regulating
+                        system that erases the boundaries of physical, digital and biological spheres.
+                    </p>
+                    <hr>
+                </section>
+                '
+            ],
+            [
+                'name' => 'Industry 4.0',
+                // 'image' => '',
+                'text_uk' => '
+                <section id="about" class="section" >
+                    <h2 class="atitle">Що це?</h2>
+                    <p>Індустрія 4.0 - це технічна революція, яка уособлює в собі автоматизацію виробництва, поширення Інтернету речей, аналізу та обробки великих даних, використання нейромереж та створення штучного інтелекту. Метою цієї революції є об’єднання усіх технологій в одну саморегульовану систему, що стирає межі фізичних, цифрових та біологічних сфер.</p>
+                    <hr>
+                </section>
+                ',
+
+                'text_en' => '
+                <section id="about" class="section" >
                     <h2 class="atitle">What is it?</h2>
                     <p>Industry 4.0 is a technical revolution that embodies automation of production,
                         the dissemination of Internet of things, analysis and processing of Big data,
