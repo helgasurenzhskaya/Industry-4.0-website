@@ -99,8 +99,23 @@ $di->setShared('router', function () use ($di) {
         'action' => 'robots',
     ]);
 
+    $backend->add('/admin/login', array(
+        'controller' => 'auth',
+        'action' => 'login',
+    ))->setName('backend/login');
+    
+    $backend->add('/admin/logout', array(
+        'controller' => 'auth',
+        'action' => 'logout',
+    ))->setName('backend/logout');
+    
+    $backend->add('/admin', array(
+        'controller' => 'index',
+        'action' => 'index',
+    ))->setName('backend');
+
     $router->mount($frontend);
-    //$router->mount($backend);
+    $router->mount($backend);
     $router->setDefaultModule('frontend');
    
     $router->notFound(['module' => 'frontend', 'controller' => 'error', 'action' => 'show404']);
