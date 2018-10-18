@@ -8,37 +8,27 @@ use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 use Phalcon\Mvc\Application;
 use Phalcon\Http\Response\Cookies;
 use Phalcon\Mvc\Router;
+use Phalcon\Mvc\Router\Group as RouterGroup;
 
-// Define some absolute path constants to aid in locating resources
+// Define some absolute path constants to aid in locating resources.
 define('BASE_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
-define('APP_PATH', BASE_PATH . 'app' . DIRECTORY_SEPARATOR);
+define('APPS_PATH', BASE_PATH . 'app' . DIRECTORY_SEPARATOR);
 
 $loader = new Loader();
 
 $loader->registerDirs(
     [
-        APP_PATH . 'controllers' . DIRECTORY_SEPARATOR,
-        APP_PATH . 'models' . DIRECTORY_SEPARATOR,
-        APP_PATH . 'services' . DIRECTORY_SEPARATOR,
+        APPS_PATH . 'models' . DIRECTORY_SEPARATOR,
+        APPS_PATH . 'services' . DIRECTORY_SEPARATOR,
     ]
 );
 
 $loader->register();
 
-// Create a DI
+// Create a DI.
 $di = new Di();
 
-// Setup the view component
-$di->setShared(
-    'view',
-    function () {
-        $view = new View();
-        $view->setViewsDir(APP_PATH . 'views' . DIRECTORY_SEPARATOR);
-        return $view;
-    }
-);
-
-// Setup a base URI
+// Setup a base URI.
 $di->setShared(
     'url',
     function () {
@@ -68,10 +58,8 @@ $di->setShared(
 );
 
 $di->setShared('router', function () use ($di) {
-    /** @var Language $lang */
     $lang = $di->get('lang');
 
-    /** @var string $_langs строчка языков */
     $_langs = implode(
         '|', 
         array_map(
@@ -84,31 +72,38 @@ $di->setShared('router', function () use ($di) {
 
     $router = new Router(false);
     $router->removeExtraSlashes(true);
+
+    $frontend = new RouterGroup(['module' => 'frontend',]);
+    $backend = new RouterGroup(['module' => 'backend',]);
     
     $router->add('/{language:(' . $_langs . ')}')->setName('home');
 
-    $router->add('/', [
+    $frontend->add('/', [
         'controller' => 'index',
         'action' => 'index',
     ]);
 
-    $router->add('/{language:(' . $_langs . ')}/article/{article_id}', [
+    $frontend->add('/{language:(' . $_langs . ')}/article/{article_id}', [
         'controller' => 'article',
         'action' => 'show',
         'lang' => '',
     ])->setName('article/show');
 
-    $router->add('/sitemap.xml', [
+    $frontend->add('/sitemap.xml', [
         'controller' => 'index',
         'action' => 'sitemap',
     ]);
 
-    $router->add('/robots.txt', [
+    $frontend->add('/robots.txt', [
         'controller' => 'index',
         'action' => 'robots',
     ]);
-    
-    $router->notFound(['controller' => 'error', 'action' => 'show404']);
+
+    $router->mount($frontend);
+    //$router->mount($backend);
+    $router->setDefaultModule('frontend');
+   
+    $router->notFound(['module' => 'frontend', 'controller' => 'error', 'action' => 'show404']);
 
     return $router;
 });
@@ -144,7 +139,8 @@ $di->setShared(
     'translate',
     function () use ($di) {
         $lang = $di->get('lang');
-        $file = APP_PATH . 'messages' . DIRECTORY_SEPARATOR . $lang->getCurrent()->getId() . '.php';
+        $dispatcher = $di->get('dispatcher');
+        $file = APPS_PATH . $dispatcher->getModuleName() . DIRECTORY_SEPARATOR . 'messages' . DIRECTORY_SEPARATOR . $lang->getCurrent()->getId() . '.php';
         $translate = new \Phalcon\Translate\Adapter\NativeArray([
             'content' => require_once $file,
         ]);
@@ -153,7 +149,18 @@ $di->setShared(
     }
 );
 
+
 $application = new Application($di);
+$application->registerModules([
+    'frontend' => [
+        'className' => 'Frontend\Module',
+        'path' => APPS_PATH . 'frontend' . DIRECTORY_SEPARATOR . 'Module.php',
+    ],
+    'backend' => [
+        'className' => 'Backend\Module',
+        'path' => APPS_PATH . 'backend' . DIRECTORY_SEPARATOR . 'Module.php',
+    ],
+]);
 // try {
     $response = $application->handle();
 // } catch (Exception $e) {

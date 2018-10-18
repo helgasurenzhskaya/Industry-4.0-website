@@ -1,6 +1,9 @@
 <?php
 
+namespace Frontend;
+
 use Phalcon\Mvc\Controller;
+use Article;
 
 class ArticleController extends Controller 
 {

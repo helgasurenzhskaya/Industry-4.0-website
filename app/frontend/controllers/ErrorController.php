@@ -1,5 +1,7 @@
 <?php
 
+namespace Frontend;
+
 use Phalcon\Mvc\Controller;
 use Phalcon\Mvc\View;
 
