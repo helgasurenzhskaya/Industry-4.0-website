@@ -26,10 +26,13 @@ class Module
         $di->get('dispatcher')->setDefaultNamespace('Frontend\\');
 
         // Registering the view service.
-        $di->set('view', function () {
-            $view = new MvcView();
-            $view->setViewsDir(APP_PATH . 'views' . DIRECTORY_SEPARATOR);
-            return $view;
-        });
+        $di->setShared(
+            'view', 
+            function () {
+                $view = new MvcView();
+                $view->setViewsDir(APP_PATH . 'views' . DIRECTORY_SEPARATOR);
+                return $view;
+            }
+        );
     }
 }
