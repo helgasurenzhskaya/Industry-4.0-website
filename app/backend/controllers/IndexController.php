@@ -1,6 +1,6 @@
 <?php
 
-namespace Backend;
+namespace Backend\Controller;
 
 class IndexController extends BackendController
 {

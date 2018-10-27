@@ -164,7 +164,6 @@ $di->setShared(
     }
 );
 
-
 $application = new Application($di);
 $application->registerModules([
     'frontend' => [

@@ -8,6 +8,8 @@ use Phalcon\Acl;
 use Phalcon\Acl\Adapter\Memory as AclAdapter;
 use Phalcon\Acl\Role as AclRole;
 use Phalcon\Acl\Resource as AclResource;
+use Phalcon\Flash\Session as FlashSession;
+use Phalcon\Session\Adapter\Files as Session;
 
 defined('APP_PATH') || define('APP_PATH', APPS_PATH . 'backend' . DIRECTORY_SEPARATOR);
 
@@ -18,7 +20,9 @@ class Module
         $loader = new Loader();
 
         $loader->registerNamespaces([
-            'Backend' => APP_PATH . 'controllers' . DIRECTORY_SEPARATOR,
+            'Backend\Controller' => APP_PATH . 'controllers' . DIRECTORY_SEPARATOR,
+            'Backend' => APP_PATH . 'services' . DIRECTORY_SEPARATOR,
+            'Backend\Forms' => APP_PATH . 'forms' . DIRECTORY_SEPARATOR,
         ]);
 
         $loader->register();
@@ -129,8 +133,15 @@ class Module
             }
         );
 
+        $di->setShared(
+            'auth', 
+            function () {
+                return new Auth();
+            }
+        );
+
         // Registering a namespace.
-        $di->get('dispatcher')->setDefaultNamespace('Backend\\');
+        $di->get('dispatcher')->setDefaultNamespace('Backend\\Controller\\');
 
         // Registering the view service.
         $di->setShared(
@@ -141,5 +152,22 @@ class Module
                 return $view;
             }
         );
+
+        $di->setShared('flashSession', function () {
+            return new FlashSession([
+                'error' => 'alert alert-danger',
+                'success' => 'alert alert-success',
+                'notice' => 'alert alert-info',
+                'warning' => 'alert alert-warning'
+            ]);
+        });
+
+        $di->setShared('session', function () {
+            $session = new Session();
+
+            $session->start();
+
+            return $session;
+        });
     }
 }
