@@ -1,2 +1,13 @@
-Baaaaackeend
-<?= $this->getContent(); ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="<?= $this->url->path($this->url->get()) ?>">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Industry 4.0</title>
+    <link rel="stylesheet" type="text/css" media="all" href="assets/css/backend.css">
+</head>
+<body>
+    <?= $this->getContent(); ?>
+</body>
+</html>
