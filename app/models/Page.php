@@ -79,4 +79,26 @@ class Page extends Model
     {
         $this->sort = $sort;
     }
+
+    public function getLinkBackendEdit(): string
+    {
+        return Di::getDefault()
+            ->get('url')
+            ->get([
+                'for' => 'backend/page/item_action',
+                'action' => 'edit',
+                'page_id' => $this->getId(),
+            ]);
+    }
+
+    public function getLinkBackendDelete(): string
+    {
+        return Di::getDefault()
+            ->get('url')
+            ->get([
+                'for' => 'backend/page/item_action',
+                'action' => 'delete',
+                'page_id' => $this->getId(),
+            ]);
+    }
 }

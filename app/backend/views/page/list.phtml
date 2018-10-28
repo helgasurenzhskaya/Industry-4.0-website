@@ -1,0 +1,12 @@
+<?php
+$items = Page::find([
+    'order' => 'name ASC',
+]);
+?>
+<?php foreach($items as $item): ?>
+    <div>
+        <input type="checkbox" name="delete" value="<?= $item->getLinkBackendDelete() ?>">
+        <a href="<?= $item->getLinkBackendEdit() ?>"><?= $item->getName() ?></a>
+    </div>
+<?php endforeach; ?>
+<a href="<?= $this->url->get(['for' => 'backend/page/add']) ?>">Add</a>
