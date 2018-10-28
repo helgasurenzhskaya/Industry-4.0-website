@@ -2,13 +2,14 @@
 
 use Phalcon\Mvc\Model;
 
-class User extends Model 
+class User extends Model
 {
     private $id;
     private $login;
     private $password;
     private $name;
     private $active;
+    private $role;
     private $sort;
 
     public function getSource(): string
@@ -16,7 +17,7 @@ class User extends Model
         return 'users';
     }
 
-    public function getId(): int 
+    public function getId(): int
     {
         return $this->id;
     }
@@ -32,7 +33,7 @@ class User extends Model
         return $this->password;
     }
 
-    public function getLogin(): string 
+    public function getLogin(): string
     {
         return $this->login;
     }
@@ -42,7 +43,12 @@ class User extends Model
         return $this->active === 1 ? true : false;
     }
 
-    public function getSort():int
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+
+    public function getSort(): int
     {
         return $this->sort;
     }
@@ -70,10 +76,18 @@ class User extends Model
     public function setActive(bool $active)
     {
         if ($active === true) {
-            $this->active = 1;  
+            $this->active = 1;
         } else {
             $this->active = 0;
         }
+    }
+
+    public function setRole(string $role)
+    {
+        if ($role !== 'admin' && $role !== 'editor') {
+            throw new UnexpectedValueException('unknown role');
+        }
+        $this->role = $role;
     }
 
     public function setSort(int $sort)

@@ -61,11 +61,11 @@ $di->setShared('router', function () use ($di) {
     $lang = $di->get('lang');
 
     $_langs = implode(
-        '|', 
+        '|',
         array_map(
             function (lang $item): string {
                 return $item->getId();
-            }, 
+            },
             $lang->getAll()
         )
     );
@@ -75,7 +75,7 @@ $di->setShared('router', function () use ($di) {
 
     $frontend = new RouterGroup(['module' => 'frontend',]);
     $backend = new RouterGroup(['module' => 'backend',]);
-    
+
     $router->add('/{language:(' . $_langs . ')}')->setName('home');
 
     $frontend->add('/', [
@@ -103,12 +103,12 @@ $di->setShared('router', function () use ($di) {
         'controller' => 'auth',
         'action' => 'login',
     ))->setName('backend/login');
-    
+
     $backend->add('/admin/logout', array(
         'controller' => 'auth',
         'action' => 'logout',
     ))->setName('backend/logout');
-    
+
     $backend->add('/admin', array(
         'controller' => 'index',
         'action' => 'index',
@@ -117,7 +117,7 @@ $di->setShared('router', function () use ($di) {
     $router->mount($frontend);
     $router->mount($backend);
     $router->setDefaultModule('frontend');
-   
+
     $router->notFound(['module' => 'frontend', 'controller' => 'error', 'action' => 'show404']);
 
     return $router;

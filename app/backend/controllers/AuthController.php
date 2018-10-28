@@ -22,7 +22,7 @@ class AuthController extends Controller
 //			else
                 {
                     $this->auth->check(
-                        $this->request->getPost('email'),
+                        $this->request->getPost('login'),
                         $this->request->getPost('password')
                     );
                     $this->response->redirect(

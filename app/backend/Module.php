@@ -124,7 +124,7 @@ class Module
                     );
                     foreach ($actions as $action => $roles) {
                         foreach ($roles as $role) {
-                            $acl->allow($roles, $controller, $action);
+                            $acl->allow($role, $controller, $action);
                         }
                     }
                 }
@@ -134,7 +134,7 @@ class Module
         );
 
         $di->setShared(
-            'auth', 
+            'auth',
             function () {
                 return new Auth();
             }
@@ -145,7 +145,7 @@ class Module
 
         // Registering the view service.
         $di->setShared(
-            'view', 
+            'view',
             function () {
                 $view = new MvcView();
                 $view->setViewsDir(APP_PATH . 'views' . DIRECTORY_SEPARATOR);

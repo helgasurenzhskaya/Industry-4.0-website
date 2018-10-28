@@ -7,22 +7,22 @@ use \Exception;
 
 class Auth extends MvcUserComponent
 {
-    public function check($login, $password): void
+    public function check($login, $password)
     {
         $user = User::findFirst([
-            'conditions' => 'email = :user:',
+            'conditions' => 'login = :user:',
             'bind' => [
                 'user' => $login,
             ],
         ]);
 
         if ($user == false) {
-            throw new Exception('error.email-password');
+            throw new Exception('error.login-password');
         }
 
         // Check the password.
         if ($this->security->checkHash($password, $user->getPassword()) == false) {
-            throw new Exception('error.email-password');
+            throw new Exception('error.login-password');
         }
 
         $this->session->set('auth-identity', [
