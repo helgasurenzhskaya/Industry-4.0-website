@@ -3,7 +3,7 @@
 use Phalcon\Mvc\Model;
 use Phalcon\Di;
 
-class Page extends Model 
+class Page extends Model
 {
     private $id;
     private $text_uk;
@@ -16,7 +16,7 @@ class Page extends Model
         return 'pages';
     }
 
-    public function getId(): int 
+    public function getId(): int
     {
         return $this->id;
     }
@@ -56,7 +56,7 @@ class Page extends Model
         $this->id = $value;
     }
 
-    public function setText(string $value, $lang) 
+    public function setText(string $value, $lang)
     {
         $tmp_field = 'text_';
 

@@ -99,20 +99,34 @@ $di->setShared('router', function () use ($di) {
         'action' => 'robots',
     ]);
 
-    $backend->add('/admin/login', array(
+    $backend->add('/admin/login', [
         'controller' => 'auth',
         'action' => 'login',
-    ))->setName('backend/login');
+    ])->setName('backend/login');
 
-    $backend->add('/admin/logout', array(
+    $backend->add('/admin/logout', [
         'controller' => 'auth',
         'action' => 'logout',
-    ))->setName('backend/logout');
+    ])->setName('backend/logout');
 
-    $backend->add('/admin', array(
+    $backend->add('/admin', [
         'controller' => 'index',
         'action' => 'index',
-    ))->setName('backend');
+    ])->setName('backend');
+
+    $backend->add('/admin/page/list', [
+        'controller' => 'page',
+        'action' => 'list',
+    ])->setName('backend/page/list');
+
+    $backend->add('/admin/page/add', [
+        'controller' => 'page',
+        'action' => 'add',
+    ])->setName('backend/page/add');
+
+    $backend->add('/admin/page/{action:(edit|delete)}/{page_id}', [
+        'controller' => 'page',
+    ])->setName('backend/page/item_action');
 
     $router->mount($frontend);
     $router->mount($backend);

@@ -25,7 +25,7 @@
 </head>
 <body>
     <header>
-        <?php $menus = Menu::find(); 
+        <?php $menus = Menu::find();
         if (count($menus) > 0): ?>
             <ul id="nav" class="menu menu-hover-lines">
                 <?php foreach ($menus as $menu): ?>
@@ -33,7 +33,7 @@
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>
-        <?php 
+        <?php
         // Current URI.
         $current_uri = $this->router->getRewriteUri();
         // If current URI does not containt lang code let's add current lang code.
@@ -42,10 +42,10 @@
         endif;
 
         $current_uri = rtrim($current_uri, '/').'/';
-        $langs = $this->getDi()->get('lang')->getAll(); 
-        if (count($langs) > 1): 
-            foreach ($langs as $lang): 
-                if ($this->getDi()->get('lang')->getCurrent()->getId() === $lang->getId()):
+        $langs = $this->lang->getAll();
+        if (count($langs) > 1):
+            foreach ($langs as $lang):
+                if ($this->lang->getCurrent()->getId() === $lang->getId()):
                     continue;
                 endif;?>
                 <a href="<?= rtrim(str_replace('/'.$this->lang->getCurrent()->getId().'/', '/'.$lang->getId().'/', $current_uri), '/');?>"><div class="link"><?= $lang->getTitle() ?></div></a>
@@ -55,7 +55,7 @@
     <?= $this->getContent(); ?>
     <footer class="footer">
             <h2><?= $this->translate->_('footer.about') ?></h2>
-            <div class="icons">      
+            <div class="icons">
                 <a href="http://www.facebook.com/sharer.php?u=<?= $this->getDi()->get('url')->getBaseUri() ?>" rel="nofollow" target="_blank"><i class="fa fa-facebook"></i></a>
                 <a href="https://twitter.com/intent/tweet?text=<?= $this->getDi()->get('url')->getBaseUri() ?>"><i class="fa fa-twitter"></i></a>
                 <a href="https://plusone.google.com/_/+1/confirm?hl=ru&url=<?= $this->getDi()->get('url')->getBaseUri() ?>"><i class="fa fa-google-plus"></i></a>
