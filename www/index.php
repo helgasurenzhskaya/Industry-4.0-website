@@ -170,7 +170,7 @@ $di->setShared(
         $lang = $di->get('lang');
         $dispatcher = $di->get('dispatcher');
         $file = APPS_PATH . $dispatcher->getModuleName() . DIRECTORY_SEPARATOR . 'messages' . DIRECTORY_SEPARATOR . $lang->getCurrent()->getId() . '.php';
-        $translate = new \Phalcon\Translate\Adapter\NativeArray([
+        $translate = new Phalcon\Translate\Adapter\NativeArray([
             'content' => require_once $file,
         ]);
 
