@@ -2,10 +2,11 @@
     "name": "industry-4.0-website",
     "version": "1.0.0",
     "private": true,
-    "main": "index.js",
     "scripts": {
-        "scss:develop": "node-sass --source-map true --source-map-embed --output-style expanded assets\\css\\backend.scss > www\\assets\\css\\backend.css && node-sass --source-map true --source-map-embed --output-style expanded assets\\css\\frontend.scss > www\\assets\\css\\frontend.css",
-        "scss:release": "node-sass --output-style compressed assets\\css\\backend.scss > www\\assets\\css\\backend.css && node-sass --output-style compressed assets\\css\\frontend.scss > www\\assets\\css\\frontend.css",
+        "develop": "npm run scss:develop && npm run js:develop",
+        "js:develop": "ncp node_modules/jquery/dist/jquery.js www/assets/js/jquery.js && ncp node_modules/bootstrap/dist/js/bootstrap.js www/assets/js/bootstrap.js",
+        "scss:develop": "node-sass --source-map true --source-map-embed --output-style expanded assets/css/backend.scss > www/assets/css/backend.css && node-sass --source-map true --source-map-embed --output-style expanded assets/css/frontend.scss > www/assets/css/frontend.css",
+        "scss:release": "node-sass --output-style compressed assets/css/backend.scss > www/assets/css/backend.css && node-sass --output-style compressed assets/css/frontend.scss > www/assets/css/frontend.css",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
@@ -16,6 +17,7 @@
     "dependencies": {
         "bootstrap": "~4.1.3",
         "jquery": "~3.3.1",
-        "node-sass": "~4.9.4"
+        "node-sass": "~4.9.4",
+        "ncp": "^2.0.0"
     }
 }
