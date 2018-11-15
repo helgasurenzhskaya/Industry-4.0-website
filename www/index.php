@@ -128,6 +128,20 @@ $di->setShared('router', function () use ($di) {
         'controller' => 'page',
     ])->setName('backend/page/item_action');
 
+    $backend->add('/admin/account/list', [
+        'controller' => 'user',
+        'action' => 'list',
+    ])->setName('backend/user/list');
+
+    $backend->add('/admin/account/add', [
+        'controller' => 'user',
+        'action' => 'add',
+    ])->setName('backend/user/add');
+
+    $backend->add('/admin/account/{action:(edit|delete)}/{user_id}', [
+        'controller' => 'user',
+    ])->setName('backend/user/item_action');
+
     $router->mount($frontend);
     $router->mount($backend);
     $router->setDefaultModule('frontend');

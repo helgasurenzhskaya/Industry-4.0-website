@@ -1,6 +1,7 @@
 <?php
 
 use Phalcon\Mvc\Model;
+use Phalcon\Di;
 
 class User extends Model
 {
@@ -95,6 +96,27 @@ class User extends Model
         $this->sort = $sort;
     }
 
+    public function getLinkBackendEdit(): string
+    {
+        return Di::getDefault()
+            ->get('url')
+            ->get([
+                'for' => 'backend/user/item_action',
+                'action' => 'edit',
+                'page_id' => $this->getId(),
+            ]);
+    }
+
+    public function getLinkBackendDelete(): string
+    {
+        return Di::getDefault()
+            ->get('url')
+            ->get([
+                'for' => 'backend/user/item_action',
+                'action' => 'delete',
+                'page_id' => $this->getId(),
+            ]);
+    }
 }
 
 
