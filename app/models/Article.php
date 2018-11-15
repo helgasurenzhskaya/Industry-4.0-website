@@ -3,7 +3,7 @@
 use Phalcon\Mvc\Model;
 use Phalcon\Di;
 
-class Article extends Model 
+class Article extends Model
 {
     private $id;
     private $title_uk;
@@ -96,7 +96,7 @@ class Article extends Model
         $this->id = $value;
     }
 
-    public function setTitle(string $value, $lang) 
+    public function setTitle(string $value, $lang)
     {
         $tmp_field = 'title_';
 
@@ -114,7 +114,7 @@ class Article extends Model
         $this->sort = $sort;
     }
 
-    public function setText(string $value, $lang) 
+    public function setText(string $value, $lang)
     {
         $tmp_field = 'text_';
 
@@ -131,4 +131,30 @@ class Article extends Model
     {
         $this->author_id = $author_id;
     }
+
+    public function getLinkBackendEdit(): string
+    {
+        return Di::getDefault()
+            ->get('url')
+            ->get([
+                'for' => 'backend/article/item_action',
+                'action' => 'edit',
+                'page_id' => $this->getId(),
+            ]);
+    }
+
+    public function getLinkBackendDelete(): string
+    {
+        return Di::getDefault()
+            ->get('url')
+            ->get([
+                'for' => 'backend/article/item_action',
+                'action' => 'delete',
+                'page_id' => $this->getId(),
+            ]);
+    }
 }
+
+
+
+
