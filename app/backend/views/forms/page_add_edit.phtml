@@ -6,7 +6,7 @@ use Backend\Forms\PageAddEditForm as Form;
  */
 ?>
 <?php if (isset($item_form) && $item_form instanceof Form): ?>
-    <form class="form-horizontal" accept-charset="UTF-8" role="form" method="post" action="<?= $this->url->get(['for' => 'backend/login']) ?>">
+    <form class="form-horizontal" accept-charset="UTF-8" role="form" method="post" action="<?= $item_form->getAction() ?>">
         <?php foreach ($item_form as $form_element):
             if ($form_element instanceof Phalcon\Forms\Element\Hidden):
                 echo $form_element->render(['class' => 'form-control', 'required' => 'required']);
@@ -28,7 +28,7 @@ use Backend\Forms\PageAddEditForm as Form;
         endforeach;
         ?>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Sign In</button>
+            <button type="submit" class="btn btn-primary">Save</button>
         </div>
     </form>
 <?php endif; ?>

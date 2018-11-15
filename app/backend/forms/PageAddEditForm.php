@@ -15,6 +15,12 @@ class PageAddEditForm extends Form
 
     public function initialize()
     {
+        $this->setAction($this->url->get([
+            'for' => 'backend/page/item_action',
+            'action' => 'edit',
+            'page_id' => $this->getEntity()->getId(),
+        ]));
+
         $name = new Text('name');
         $name->setLabel('Name');
         $name->addValidators([
