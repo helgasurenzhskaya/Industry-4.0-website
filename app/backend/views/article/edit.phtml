@@ -1,0 +1,16 @@
+<?php
+use Backend\Forms\ArticleAddEditForm as Form;
+/**
+ * View's variables:
+ * @var Form $item_form
+ */
+?>
+<?php if (true): ?>
+    <div><?= $this->flashSession->output(); ?></div>
+<?php endif; ?>
+<?= $this->view->partial(
+    'forms/article_add_edit',
+    [
+        'item_form' => $item_form,
+    ]
+) ?>
