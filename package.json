@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "develop": "npm run scss:develop && npm run js:develop",
+        "develop": "npm run font:copy && npm run scss:develop && npm run js:develop",
         "font:copy": "ncp node_modules/@fortawesome/fontawesome-free/webfonts www/assets/font",
         "js:develop": "ncp node_modules/jquery/dist/jquery.js www/assets/js/jquery.js && ncp node_modules/bootstrap/dist/js/bootstrap.js www/assets/js/bootstrap.js",
         "scss:develop": "node-sass --source-map true --source-map-embed --output-style expanded assets/css/backend.scss > www/assets/css/backend.css && node-sass --source-map true --source-map-embed --output-style expanded assets/css/frontend.scss > www/assets/css/frontend.css",
