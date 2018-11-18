@@ -23,6 +23,18 @@ class ArticleController extends BackendController
                     if ($item->save() === false) {
                         throw new Exception();
                     }
+
+                    if ($this->request->hasFiles(true)) {
+                        $files = $this->request->getUploadedFiles();
+                        foreach ($files as $file) {
+                            if ($file->getKey() !== 'image') {
+                                continue;
+                            }
+                            $item->updateImage($file);
+                            break;
+                        }
+                    }
+
                     $this->flashSession->success('Saved.');
                     $this->response->redirect($item->getLinkBackendEdit(), false, 200);
                 }
@@ -55,6 +67,18 @@ class ArticleController extends BackendController
                     if ($item->save() === false) {
                         throw new Exception();
                     }
+
+                    if ($this->request->hasFiles(true)) {
+                        $files = $this->request->getUploadedFiles();
+                        foreach ($files as $file) {
+                            if ($file->getKey() !== 'image') {
+                                continue;
+                            }
+                            $item->updateImage($file);
+                            break;
+                        }
+                    }
+
                     $this->flashSession->success('Saved.');
                 } catch (Exception $e) {
                     $messages = $item->getMessages();

@@ -13,6 +13,7 @@ use Phalcon\Mvc\Router\Group as RouterGroup;
 // Define some absolute path constants to aid in locating resources.
 define('BASE_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 define('APPS_PATH', BASE_PATH . 'app' . DIRECTORY_SEPARATOR);
+define('CONTENT_PATH', BASE_PATH . 'www' . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR);
 
 $loader = new Loader();
 

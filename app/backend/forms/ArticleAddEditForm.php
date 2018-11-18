@@ -2,14 +2,16 @@
 namespace Backend\Forms;
 
 use Phalcon\Forms\Form;
+use Phalcon\Forms\Element\File;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\TextArea;
 use Phalcon\Forms\Element\Numeric;
-use Phalcon\Validation\Validator\PresenceOf;
-use Phalcon\Validation\Validator\StringLength;
+use Phalcon\Validation\Validator\Between;
+use Phalcon\Validation\Validator\File as FileValidator;
 use Phalcon\Validation\Validator\Identical;
 use Phalcon\Validation\Validator\Numericality;
-use Phalcon\Validation\Validator\Between;
+use Phalcon\Validation\Validator\PresenceOf;
+use Phalcon\Validation\Validator\StringLength;
 
 class ArticleAddEditForm extends Form
 {
@@ -24,7 +26,7 @@ class ArticleAddEditForm extends Form
             $this->setAction($this->url->get([
                 'for' => 'backend/article/item_action',
                 'action' => 'edit',
-                'page_id' => $this->getEntity()->getId(),
+                'article_id' => $this->getEntity()->getId(),
             ]));
         }
 
@@ -60,6 +62,27 @@ class ArticleAddEditForm extends Form
 
             $this->add($text);
         }
+
+        $file = new File('image');
+        $file->setLabel('Image');
+        // if ($this->request->hasFiles(true)) {
+        //     $file->addValidators([
+        //         new FileValidator([
+        //             'maxSize' => '2M',
+        //             'messageSize' => ':field exceeds the max filesize (:max)',
+        //             'allowedTypes' => [
+        //                 'image/jpeg',
+        //                 'image/png',
+        //             ],
+        //             'messageType' => 'Allowed file types are :types',
+        //             'maxResolution' => '1920X1277',
+        //             'minResolution' => '752X500',
+        //             'messageMaxResolution' => 'Max resolution of :field is :max',
+        //         ]),
+        //     ]);
+        // }
+
+        $this->add($file);
 
         $sort = new Numeric('sort');
         $sort->setLabel('Sort');

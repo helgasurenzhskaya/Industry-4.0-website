@@ -11,6 +11,7 @@ class Article extends Model
     private $text_uk;
     private $text_en;
     private $sort;
+    private $image;
     private $author_id;
 
     function initialize()
@@ -95,9 +96,17 @@ class Article extends Model
         return $this->$tmp_field;
     }
 
-    public function getImageLink(): string
+    public function getImage()
     {
-        return Di::getDefault()->get('url')->getStatic('content/photo' . $this->getId() . '.jpg');
+        return $this->image;
+    }
+
+    public function getImageLink()
+    {
+        if ($this->getImage() === null) {
+            return null;
+        }
+        return Di::getDefault()->get('url')->getStatic('content/article/' . $this->getImage());
     }
 
     public function getLink(): string
@@ -145,6 +154,11 @@ class Article extends Model
         $this->$tmp_field = $value;
     }
 
+    public function setImage($value)
+    {
+        $this->image = $value;
+    }
+
     public function setAuthorId(int $author_id)
     {
         $this->author_id = $author_id;
@@ -170,5 +184,44 @@ class Article extends Model
                 'action' => 'delete',
                 'article_id' => $this->getId(),
             ]);
+    }
+
+    public function afterDelete()
+    {
+        $this->deleteImage();
+    }
+
+    public function deleteImage()
+    {
+        if (
+            $this->getImage() !== null
+            && \file_exists(CONTENT_PATH . 'article' . DIRECTORY_SEPARATOR . $this->getImage())
+        ) {
+            unlink(CONTENT_PATH . 'article' . DIRECTORY_SEPARATOR . $this->getImage());
+        }
+    }
+
+    public function updateImage(Phalcon\Http\Request\File $file)
+    {
+        $this->deleteImage();
+
+        $this->setImage($this->getId() . '.' . $file->getExtension());
+        if (file_exists(CONTENT_PATH . 'article') === false) {
+            mkdir(CONTENT_PATH . 'article');
+        }
+        $file->moveTo(
+            CONTENT_PATH . 'article' . DIRECTORY_SEPARATOR . $this->getImage()
+        );
+
+        try {
+            if ($this->save() === false) {
+                throw new Exception();
+            }
+        } catch (Exception $e) {
+            if (\file_exists(CONTENT_PATH . 'article' . DIRECTORY_SEPARATOR . $this->getImage())) {
+                unlink(CONTENT_PATH . 'article' . DIRECTORY_SEPARATOR . $this->getImage());
+            }
+            throw new Exception('Can not save image.');
+        }
     }
 }
