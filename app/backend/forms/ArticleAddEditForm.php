@@ -4,11 +4,12 @@ namespace Backend\Forms;
 use Phalcon\Forms\Form;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\TextArea;
-use Phalcon\Forms\Element\Password;
-use Phalcon\Forms\Element\Hidden;
+use Phalcon\Forms\Element\Numeric;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\StringLength;
 use Phalcon\Validation\Validator\Identical;
+use Phalcon\Validation\Validator\Numericality;
+use Phalcon\Validation\Validator\Between;
 
 class ArticleAddEditForm extends Form
 {
@@ -21,24 +22,24 @@ class ArticleAddEditForm extends Form
             'page_id' => $this->getEntity()->getId(),
         ]));
 
-        $name = new Text('title');
-        $name->setLabel('title');
-        $name->addValidators([
-            new PresenceOf([
-                'message' => 'Please fill "Title" field.',
-            ]),
-            new StringLength([
-                'max' => 255,
-                'min' => 2,
-                'messageMaximum' => 'Can not be longer than 255 characters',
-                'messageMinimum' => 'Can not be shorter than 2 characters',
-            ]),
-        ]);
-
-        $this->add($name);
-
         $langs = $this->lang->getAll();
         foreach ($langs as $lang) {
+            $name = new Text('title_' . $lang->getId());
+            $name->setLabel('Title ' . $lang->getId());
+            $name->addValidators([
+                new PresenceOf([
+                    'message' => 'Please fill "Title ' . $lang->getId() . ' " field.',
+                ]),
+                new StringLength([
+                    'max' => 255,
+                    'min' => 2,
+                    'messageMaximum' => 'Can not be longer than 255 characters.',
+                    'messageMinimum' => 'Can not be shorter than 2 characters.',
+                ]),
+            ]);
+
+            $this->add($name);
+
             $text = new TextArea('text_' . $lang->getId());
             $text->setLabel('Text ' . $lang->getId());
             $text->addValidators([
@@ -47,11 +48,28 @@ class ArticleAddEditForm extends Form
                 ]),
                 new StringLength([
                     'max' => 65000,
-                    'messageMaximum' => 'Can not be longer than 65000 characters',
+                    'messageMaximum' => 'Can not be longer than 65000 characters.',
                 ]),
             ]);
 
             $this->add($text);
         }
+
+        $sort = new Numeric('sort');
+        $sort->setLabel('Sort');
+        $sort->addValidators([
+            new PresenceOf([
+                'message' => 'Please fill "Sort".',
+            ]),
+            new Numericality([
+                'message' => ':field is not numeric.',
+            ]),
+            new Between([
+                'minimum' => 0,
+                'maximum' => 65000,
+                'message' => 'The :field must be between 0 and 65000.',
+            ])
+        ]);
+
     }
 }

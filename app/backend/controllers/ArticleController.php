@@ -60,5 +60,5 @@ class ArticleController extends BackendController
     {
 
     }
-    
+
 }

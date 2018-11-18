@@ -30,8 +30,8 @@ class PageAddEditForm extends Form
             new StringLength([
                 'max' => 255,
                 'min' => 2,
-                'messageMaximum' => 'Can not be longer than 255 characters',
-                'messageMinimum' => 'Can not be shorter than 2 characters',
+                'messageMaximum' => 'Can not be longer than 255 characters.',
+                'messageMinimum' => 'Can not be shorter than 2 characters.',
             ]),
         ]);
 
@@ -47,7 +47,7 @@ class PageAddEditForm extends Form
                 ]),
                 new StringLength([
                     'max' => 65000,
-                    'messageMaximum' => 'Can not be longer than 65000 characters',
+                    'messageMaximum' => 'Can not be longer than 65000 characters.',
                 ]),
             ]);
 

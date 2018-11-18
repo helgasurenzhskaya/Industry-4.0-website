@@ -23,8 +23,8 @@ class AuthLoginForm extends Form
             new StringLength([
                 'max' => 200,
                 'min' => 2,
-                'messageMaximum' => 'Login can not be longer than 200 characters',
-                'messageMinimum' => 'Login can not be shorter than 2 characters',
+                'messageMaximum' => 'Login can not be longer than 200 characters.',
+                'messageMinimum' => 'Login can not be shorter than 2 characters.',
             ]),
         ]);
 
@@ -38,7 +38,7 @@ class AuthLoginForm extends Form
             ]),
             new StringLength([
                 'max' => 200,
-                'messageMaximum' => 'Login can not be longer than 200 characters',
+                'messageMaximum' => 'Login can not be longer than 200 characters.',
             ]),
         ]);
 
