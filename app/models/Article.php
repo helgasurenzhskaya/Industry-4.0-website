@@ -13,12 +13,20 @@ class Article extends Model
     private $sort;
     private $author_id;
 
+    function initialize()
+    {
+        if (Di::getDefault()->has('auth') && Di::getDefault()->get('auth')->isLoggedIn() === true) {
+            $this->author_id = Di::getDefault()->get('auth')->getUser()->getId();
+        }
+        $this->sort = 100;
+    }
+
     public function getSource(): string
     {
         return 'articles';
     }
 
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -55,6 +63,16 @@ class Article extends Model
     public function getAuthorId(): int
     {
         return $this->author_id;
+    }
+
+    public function getAuthor()
+    {
+        $author = User::findFirst($this->author_id);
+        if ($author === false) {
+            return null;
+        }
+
+        return $author;
     }
 
     public function getText($lang = null): string
@@ -139,7 +157,7 @@ class Article extends Model
             ->get([
                 'for' => 'backend/article/item_action',
                 'action' => 'edit',
-                'page_id' => $this->getId(),
+                'article_id' => $this->getId(),
             ]);
     }
 
@@ -150,11 +168,7 @@ class Article extends Model
             ->get([
                 'for' => 'backend/article/item_action',
                 'action' => 'delete',
-                'page_id' => $this->getId(),
+                'article_id' => $this->getId(),
             ]);
     }
 }
-
-
-
-

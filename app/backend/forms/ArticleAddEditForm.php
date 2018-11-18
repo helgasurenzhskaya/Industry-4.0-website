@@ -16,11 +16,17 @@ class ArticleAddEditForm extends Form
 
     public function initialize()
     {
-        $this->setAction($this->url->get([
-            'for' => 'backend/page/item_action',
-            'action' => 'edit',
-            'page_id' => $this->getEntity()->getId(),
-        ]));
+        if ($this->getEntity()->getId() === null) {
+            $this->setAction($this->url->get([
+                'for' => 'backend/article/add',
+            ]));
+        } else {
+            $this->setAction($this->url->get([
+                'for' => 'backend/article/item_action',
+                'action' => 'edit',
+                'page_id' => $this->getEntity()->getId(),
+            ]));
+        }
 
         $langs = $this->lang->getAll();
         foreach ($langs as $lang) {
@@ -71,5 +77,6 @@ class ArticleAddEditForm extends Form
             ])
         ]);
 
+        $this->add($sort);
     }
 }

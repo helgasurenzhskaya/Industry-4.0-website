@@ -6,6 +6,11 @@ use Backend\Forms\ArticleAddEditForm as Form;
  */
 ?>
 <?php if (isset($item_form) && $item_form instanceof Form): ?>
+    <?php
+    $author = $item_form->getEntity()->getAuthor();
+    if ($author !== null): ?>
+        <p>Author: <b><?= $author->getName(); ?></b></p>
+    <?php endif; ?>
     <form class="form-horizontal" accept-charset="UTF-8" role="form" method="post" action="<?= $item_form->getAction() ?>">
         <?php foreach ($item_form as $form_element):
             if ($form_element instanceof Phalcon\Forms\Element\Hidden):

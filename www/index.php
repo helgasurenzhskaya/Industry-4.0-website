@@ -152,7 +152,7 @@ $di->setShared('router', function () use ($di) {
         'action' => 'add',
     ])->setName('backend/article/add');
 
-    $backend->add('/admin/article/{action:(edit|delete)}/{page_id}', [
+    $backend->add('/admin/article/{action:(edit|delete)}/{article_id}', [
         'controller' => 'article',
     ])->setName('backend/article/item_action');
 
