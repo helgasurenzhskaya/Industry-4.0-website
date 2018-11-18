@@ -18,7 +18,7 @@ class User extends Model
         return 'users';
     }
 
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -103,7 +103,7 @@ class User extends Model
             ->get([
                 'for' => 'backend/user/item_action',
                 'action' => 'edit',
-                'page_id' => $this->getId(),
+                'user_id' => $this->getId(),
             ]);
     }
 
@@ -114,7 +114,7 @@ class User extends Model
             ->get([
                 'for' => 'backend/user/item_action',
                 'action' => 'delete',
-                'page_id' => $this->getId(),
+                'user_id' => $this->getId(),
             ]);
     }
 }

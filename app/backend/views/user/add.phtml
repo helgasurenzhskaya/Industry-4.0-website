@@ -1,5 +1,5 @@
 <?php
-use Backend\Forms\PageAddEditForm as Form;
+use Backend\Forms\UserAddEditForm as Form;
 /**
  * View's variables:
  * @var Form $item_form
@@ -9,7 +9,7 @@ use Backend\Forms\PageAddEditForm as Form;
     <div><?= $this->flashSession->output(); ?></div>
 <?php endif; ?>
 <?= $this->view->partial(
-    'forms/page_add_edit',
+    'forms/user_add_edit',
     [
         'item_form' => $item_form,
     ]

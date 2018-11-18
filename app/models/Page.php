@@ -16,7 +16,7 @@ class Page extends Model
         return 'pages';
     }
 
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -41,7 +41,7 @@ class Page extends Model
         return $this->$tmp_field;
     }
 
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }

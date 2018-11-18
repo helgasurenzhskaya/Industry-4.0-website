@@ -15,11 +15,17 @@ class PageAddEditForm extends Form
 
     public function initialize()
     {
-        $this->setAction($this->url->get([
-            'for' => 'backend/page/item_action',
-            'action' => 'edit',
-            'page_id' => $this->getEntity()->getId(),
-        ]));
+        if ($this->getEntity()->getId() === null) {
+            $this->setAction($this->url->get([
+                'for' => 'backend/page/add',
+            ]));
+        } else {
+            $this->setAction($this->url->get([
+                'for' => 'backend/page/item_action',
+                'action' => 'edit',
+                'page_id' => $this->getEntity()->getId(),
+            ]));
+        }
 
         $name = new Text('name');
         $name->setLabel('Name');

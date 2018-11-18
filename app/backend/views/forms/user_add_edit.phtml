@@ -1,12 +1,12 @@
 <?php
-use Backend\Forms\PageAddEditForm as Form;
+use Backend\Forms\UserAddEditForm as Form;
 /**
  * View's variables:
  * @var Form $item_form
  */
 ?>
 <?php if (isset($item_form) && $item_form instanceof Form): ?>
-    <form class="form-horizontal" enctype="multipart/form-data" accept-charset="UTF-8" role="form" method="post" action="<?= $item_form->getAction() ?>">
+    <form class="form-horizontal" accept-charset="UTF-8" role="form" method="post" action="<?= $item_form->getAction() ?>">
         <?php foreach ($item_form as $form_element):
             if ($form_element instanceof Phalcon\Forms\Element\Hidden):
                 echo $form_element->render(['class' => 'form-control', 'required' => 'required']);
