@@ -101,7 +101,7 @@ class Module
                             'editor',
                         ],
                     ],
-                    'menu' => [
+                    'navigation' => [
                         'add' => [
                             'admin',
                         ],

@@ -143,6 +143,20 @@ $di->setShared('router', function () use ($di) {
         'controller' => 'user',
     ])->setName('backend/user/item_action');
 
+    $backend->add('/admin/navigation/list', [
+        'controller' => 'navigation',
+        'action' => 'list',
+    ])->setName('backend/navigation/list');
+
+    $backend->add('/admin/navigation/add', [
+        'controller' => 'navigation',
+        'action' => 'add',
+    ])->setName('backend/navigation/add');
+
+    $backend->add('/admin/navigation/{action:(edit|delete)}/{navigation_id}', [
+        'controller' => 'navigation',
+    ])->setName('backend/navigation/item_action');
+
     $backend->add('/admin/article/list', [
         'controller' => 'article',
         'action' => 'list',
@@ -156,6 +170,7 @@ $di->setShared('router', function () use ($di) {
     $backend->add('/admin/article/{action:(edit|delete)}/{article_id}', [
         'controller' => 'article',
     ])->setName('backend/article/item_action');
+
 
     $router->mount($frontend);
     $router->mount($backend);

@@ -3,7 +3,7 @@
 use Phalcon\Mvc\Model;
 use Phalcon\Di;
 
-class Menu extends Model 
+class Menu extends Model
 {
     private $id;
     private $title_uk;
@@ -17,7 +17,7 @@ class Menu extends Model
         return 'menus';
     }
 
-    public function getId(): int 
+    public function getId(): int
     {
         return $this->id;
     }
@@ -80,7 +80,7 @@ class Menu extends Model
         $this->id = $value;
     }
 
-    public function setTitle(string $value, $lang) 
+    public function setTitle(string $value, $lang)
     {
         $tmp_field = 'title_';
 
@@ -93,7 +93,7 @@ class Menu extends Model
         $this->$tmp_field = $value;
     }
 
-    public function setUrl(string $value, $lang) 
+    public function setUrl(string $value, $lang)
     {
         $tmp_field = 'url_';
 
@@ -110,6 +110,26 @@ class Menu extends Model
     {
         $this->sort = $sort;
     }
+
+    public function getLinkBackendEdit(): string
+    {
+        return Di::getDefault()
+            ->get('url')
+            ->get([
+                'for' => 'backend/navigation/item_action',
+                'action' => 'edit',
+                'navigation_id' => $this->getId(),
+            ]);
+    }
+
+    public function getLinkBackendDelete(): string
+    {
+        return Di::getDefault()
+            ->get('url')
+            ->get([
+                'for' => 'backend/navigation/item_action',
+                'action' => 'delete',
+                'navigation_id' => $this->getId(),
+            ]);
+    }
 }
-
-
