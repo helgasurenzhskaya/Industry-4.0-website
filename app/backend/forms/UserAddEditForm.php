@@ -6,12 +6,11 @@ use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\TextArea;
 use Phalcon\Forms\Element\Password;
 use Phalcon\Forms\Element\Hidden;
-use Phalcon\Forms\Element\Numeric;
+use Phalcon\Forms\Element\Check;
+use Phalcon\Forms\Element\Select;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\StringLength;
-use Phalcon\Validation\Validator\Identical;
-use Phalcon\Validation\Validator\Numericality;
-use Phalcon\Validation\Validator\Between;
+use Phalcon\Validation\Validator\Confirmation;
 
 class UserAddEditForm extends Form
 {
@@ -30,8 +29,9 @@ class UserAddEditForm extends Form
             ]));
         }
 
-            $name = new Text('$name');
+            $name = new Text('name');
             $name->setLabel('Name');
+            $name->setAttribute('required', 'required');
             $name->addValidators([
                 new PresenceOf([
                     'message' => 'Please fill "Name" field.',
@@ -45,10 +45,11 @@ class UserAddEditForm extends Form
             ]);
 
             $this->add($name);
-               
 
-           $login = new Text('$login');
+
+            $login = new Text('login');
             $login->setLabel('Login');
+            $login->setAttribute('required', 'required');
             $login->addValidators([
                 new PresenceOf([
                     'message' => 'Please fill "Login" field.',
@@ -62,47 +63,52 @@ class UserAddEditForm extends Form
             ]);
 
             $this->add($login);
-        
-            
-            $id = new Text('$id');
-            $id->setLabel('Id');
-            $id->addValidators([
-                new PresenceOf([
-                    'message' => 'Please fill "Id" field.',
+
+            $active = new Check('active');
+            $active->setAttribute('value', true);
+            $active->setLabel('Active');
+
+            $this->add($active);
+
+            $role = new Select('role');
+            $role->setLabel('Role');
+            $role->setOptions([
+                'editor' => 'Editor',
+                'admin' => 'Admin',
+            ]);
+            $role->setDefault('editor');
+
+            $this->add($role);
+
+            $password_1 = new Password('password_1');
+            $password_1->setLabel('Password');
+            $password_1->addValidators([
+                new Confirmation([
+                    'with' => 'password_2',
                 ]),
                 new StringLength([
                     'max' => 255,
-                    'min' => 2,
                     'messageMaximum' => 'Can not be longer than 255 characters.',
-                    'messageMinimum' => 'Can not be shorter than 2 characters.',
                 ]),
             ]);
 
-            $this->add($id);  
-            
+            $this->add($password_1);
 
-            
-            $sort = new Numeric('$sort');
-            // fix
-            $sort->setLabel('Sort');
-            $sort->addValidators([
-                new PresenceOf([
-                    'message' => 'Please fill "Sort".',
+            $password_2 = new Password('password_2');
+            $password_2->setLabel('Re password');
+            $password_2->addValidators([
+                new StringLength([
+                    'max' => 255,
+                    'messageMaximum' => 'Can not be longer than 255 characters.',
                 ]),
-                new Numericality([
-                    'message' => ':field is not numeric.',
-                ]),
-                new Between([
-                    'minimum' => 0,
-                    'maximum' => 65000,
-                    'message' => 'The :field must be between 0 and 65000.',
-                ])
             ]);
-    
-            $this->add($sort);
 
-            //add password and role
-       
+            $this->add($password_2);
+
+            if ($this->getEntity()->getId() === null) {
+                $password_1->addValidator(new PresenceOf());
+                $password_2->addValidator(new PresenceOf());
+            }
     }
 }
 

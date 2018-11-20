@@ -13,7 +13,7 @@ class Articles extends AbstractMigration
         $users->addColumn('name', 'string', ['limit' => 32]);
         $users->addColumn('password', 'string', ['limit' => 64]);
         $users->addColumn('active', 'integer', ['default' => 1]);
-        $users->addColumn('role', 'enum', ['values' => ['admin', 'manager']]);
+        $users->addColumn('role', 'enum', ['values' => ['admin', 'editor']]);
         $users->addIndex('login', ['unique' => true]);
 
         $olgaId = 1;

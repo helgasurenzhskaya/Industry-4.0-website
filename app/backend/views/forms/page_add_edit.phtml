@@ -16,7 +16,7 @@ use Backend\Forms\PageAddEditForm as Form;
                 <?php /*<label class="control-label" for="<?= $form_element->getName() ?>"><?= $form_element->getLabel() ?></label>*/ ?>
 
                 <?php
-                echo $form_element->render(['class' => 'form-control', 'required' => 'required', 'placeholder' =>  $form_element->getLabel()]);
+                echo $form_element->render(['class' => 'form-control', 'placeholder' =>  $form_element->getLabel()]);
                 if ($messages->count() > 0):
                     foreach ($messages as $message):
                         ?><span class="help-inline" for="<?= $form_element->getName() ?>"><i class="fa fa-exclamation-circle"></i>&nbsp;<?= $message->getMessage() ?></span><?php

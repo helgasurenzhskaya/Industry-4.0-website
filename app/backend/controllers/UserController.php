@@ -2,6 +2,7 @@
 
 namespace Backend\Controller;
 
+use Exception;
 use User;
 use Backend\Forms\UserAddEditForm;
 
@@ -20,6 +21,16 @@ class UserController extends BackendController
             $form->bind($this->request->getPost(), $form->getEntity());
             if ($form->isValid()) {
                 try {
+                    $item->setPassword(
+                        $this->security->hash(
+                            $this->request->getPost('password_1')
+                        )
+                    );
+
+                    if ($this->request->hasPost('active') === false) {
+                        $item->setActive(false);
+                    }
+
                     if ($item->save() === false) {
                         throw new Exception();
                     }
@@ -51,24 +62,27 @@ class UserController extends BackendController
         }
         $form = new UserAddEditForm($item);
         if ($this->request->isPost()) {
-          
+            $form->bind($this->request->getPost(), $form->getEntity());
             if ($form->isValid()) {
+                if (
+                    $this->request->hasPost('password_1') === true
+                    && !empty($this->request->getPost('password_1'))
+                ) {
+                    $item->setPassword(
+                        $this->security->hash(
+                            $this->request->getPost('password_1')
+                        )
+                    );
+                }
+
+                if ($this->request->hasPost('active') === false) {
+                    $item->setActive(false);
+                }
+
                 try {
                     if ($item->save() === false) {
                         throw new Exception();
                     }
-
-                    if ($this->request->hasFiles(true)) {
-                        $files = $this->request->getUploadedFiles();
-                        foreach ($files as $file) {
-                            if ($file->getKey() !== 'image') {
-                                continue;
-                            }
-                            $item->updateImage($file);
-                            break;
-                        }
-                    }
-
                     $this->flashSession->success('Saved.');
                 } catch (Exception $e) {
                     $messages = $item->getMessages();

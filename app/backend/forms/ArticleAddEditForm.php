@@ -34,6 +34,7 @@ class ArticleAddEditForm extends Form
         foreach ($langs as $lang) {
             $name = new Text('title_' . $lang->getId());
             $name->setLabel('Title ' . $lang->getId());
+            $name->setAttribute('required', 'required');
             $name->addValidators([
                 new PresenceOf([
                     'message' => 'Please fill "Title ' . $lang->getId() . ' " field.',
@@ -50,6 +51,7 @@ class ArticleAddEditForm extends Form
 
             $text = new TextArea('text_' . $lang->getId());
             $text->setLabel('Text ' . $lang->getId());
+            $text->setAttribute('required', 'required');
             $text->addValidators([
                 new PresenceOf([
                     'message' => 'Please fill "Text ' . $lang->getId() . '" field.',
@@ -86,6 +88,7 @@ class ArticleAddEditForm extends Form
 
         $sort = new Numeric('sort');
         $sort->setLabel('Sort');
+        $sort->setAttribute('required', 'required');
         $sort->addValidators([
             new PresenceOf([
                 'message' => 'Please fill "Sort".',

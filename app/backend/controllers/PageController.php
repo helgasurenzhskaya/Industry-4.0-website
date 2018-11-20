@@ -2,6 +2,7 @@
 
 namespace Backend\Controller;
 
+use Exception;
 use Page;
 use Backend\Forms\PageAddEditForm;
 

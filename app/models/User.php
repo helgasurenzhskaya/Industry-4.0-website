@@ -24,27 +24,27 @@ class User extends Model
     }
 
 
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
 
-    public function getPassword(): string
+    public function getPassword()
     {
         return $this->password;
     }
 
-    public function getLogin(): string
+    public function getLogin()
     {
         return $this->login;
     }
 
     public function getActive(): bool
     {
-        return $this->active === 1 ? true : false;
+        return intval($this->active) === 1 ? true : false;
     }
 
-    public function getRole(): string
+    public function getRole()
     {
         return $this->role;
     }

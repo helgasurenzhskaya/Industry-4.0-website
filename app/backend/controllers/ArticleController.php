@@ -2,6 +2,7 @@
 
 namespace Backend\Controller;
 
+use Exception;
 use Article;
 use Backend\Forms\ArticleAddEditForm;
 

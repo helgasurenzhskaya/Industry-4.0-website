@@ -29,6 +29,7 @@ class PageAddEditForm extends Form
 
         $name = new Text('name');
         $name->setLabel('Name');
+        $name->setAttribute('required', 'required');
         $name->addValidators([
             new PresenceOf([
                 'message' => 'Please fill "Name" field.',
@@ -47,6 +48,7 @@ class PageAddEditForm extends Form
         foreach ($langs as $lang) {
             $text = new TextArea('text_' . $lang->getId());
             $text->setLabel('Text ' . $lang->getId());
+            $text->setAttribute('required', 'required');
             $text->addValidators([
                 new PresenceOf([
                     'message' => 'Please fill "Text ' . $lang->getId() . '" field.',
