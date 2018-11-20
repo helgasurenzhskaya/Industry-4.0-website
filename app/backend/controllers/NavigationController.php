@@ -45,7 +45,7 @@ class NavigationController extends BackendController
 
     public function editAction()
     {
-        $item = Menu::findFirst($this->dispatcher->getParam('menu_id'));
+        $item = Menu::findFirst($this->dispatcher->getParam('navigation_id'));
         if ($item === false) {
             $this->dispatcher->forward(['controller' => 'error', 'action' => 'show404']);
         }
@@ -56,17 +56,6 @@ class NavigationController extends BackendController
                 try {
                     if ($item->save() === false) {
                         throw new Exception();
-                    }
-
-                    if ($this->request->hasFiles(true)) {
-                        $files = $this->request->getUploadedFiles();
-                        foreach ($files as $file) {
-                            if ($file->getKey() !== 'image') {
-                                continue;
-                            }
-                            $item->updateImage($file);
-                            break;
-                        }
                     }
 
                     $this->flashSession->success('Saved.');
@@ -87,7 +76,7 @@ class NavigationController extends BackendController
 
     public function deleteAction()
     {
-        $item = Menu::findFirst($this->dispatcher->getParam('menu_id'));
+        $item = Menu::findFirst($this->dispatcher->getParam('navigation_id'));
         if ($item === false) {
             $this->dispatcher->forward(['controller' => 'error', 'action' => 'show404']);
         }

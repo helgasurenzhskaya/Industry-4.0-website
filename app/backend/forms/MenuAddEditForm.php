@@ -18,10 +18,10 @@ class MenuAddEditForm extends Form
     {
         $langs = $this->lang->getAll();
         foreach ($langs as $lang) {
-            $name = new Text('title_' . $lang->getId());
-            $name->setLabel('Title ' . $lang->getId());
-            $name->setAttribute('required', 'required');
-            $name->addValidators([
+            $title = new Text('title_' . $lang->getId());
+            $title->setLabel('Title ' . $lang->getId());
+            $title->setAttribute('required', 'required');
+            $title->addValidators([
                 new PresenceOf([
                     'message' => 'Please fill "Title ' . $lang->getId() . ' " field.',
                 ]),
@@ -32,6 +32,8 @@ class MenuAddEditForm extends Form
                     'messageMinimum' => 'Can not be shorter than 2 characters.',
                 ]),
             ]);
+
+            $this->add($title);
 
             $url = new Text('url_' . $lang->getId());
             $url->setLabel('Url ' . $lang->getId());

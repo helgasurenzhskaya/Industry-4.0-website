@@ -70,7 +70,7 @@ class Menu extends Model
         return $this->$tmp_field;
     }
 
-    public function getSort(): int
+    public function getSort()
     {
         return $this->sort;
     }
