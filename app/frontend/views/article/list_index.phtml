@@ -8,7 +8,7 @@ if ($articles->count() > 0): ?>
                 <img src="<?= $article->getImageLink() ?>" alt="<?= htmlspecialchars($article->getTitle()) ?>">
                 <p class="title"><?= $article->getTitle() ?></p>
                 <div class="overlay"></div>
-                <div class="button"><a href="<?= $article->getLink() ?>"> LEARN MORE </a></div>
+                <div class="button"><a href="<?= $article->getLink() ?>"> <?= $this->translate->_('dbutton') ?> </a></div>
             </div>
         <?php endforeach; ?>
     </div>
