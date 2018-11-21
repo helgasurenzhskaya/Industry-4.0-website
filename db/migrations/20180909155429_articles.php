@@ -42,7 +42,7 @@ class Articles extends AbstractMigration
             'author_id' => $olgaId,
             'title_uk' => 'Кіберфізичні системи',
             'title_en' => 'Cyber-physical systems',
-            // 'image' => '',
+            'image' => '1.jpg',
             'text_uk' => '
 
             <div class="wrapper">
@@ -134,7 +134,7 @@ class Articles extends AbstractMigration
                 'author_id' => $olgaId,
                 'title_uk' => 'Аналіз великих даних',
                 'title_en' => 'Big data analysis',
-                // 'image' => '',
+                'image' => '2.jpg',
                 'text_uk' => '
                 <div class="wrapper">
                     <div class="content-wrapper">
@@ -212,7 +212,7 @@ class Articles extends AbstractMigration
                 'author_id' => $olgaId,
                 'title_uk' => 'Інтернет речей',
                 'title_en' => 'Internet of things',
-                // 'image' => '',
+                'image' => '3.jpg',
                 'text_uk' => '
                 <div class="wrapper">
                     <div class="content-wrapper">
@@ -276,7 +276,7 @@ class Articles extends AbstractMigration
                 'author_id' => $olgaId,
                 'title_uk' => 'Штучний інтелект',
                 'title_en' => 'Artificial intelligence',
-                // 'image' => '',
+                'image' => '4.jpg',
                 'text_uk' => '
                     <div class="wrapper">
                         <div class="content-wrapper">
