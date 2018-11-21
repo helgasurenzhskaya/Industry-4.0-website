@@ -623,5 +623,81 @@
   
   footer {
     text-align: center;
-  
+    justify-content: center;
   }
+
+  h2 {
+    justify-content: center;
+  }
+  
+  
+.main {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+}
+
+
+
+
+.main video {
+margin-top:5%;
+  width: 100%;
+}
+
+svg {
+margin-top:5%;
+
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+ 
+    background-image: linear-gradient(transparent 5%, #c3d1e7 100%);}
+
+
+
+
+svg text {
+    font-family: Basier, sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 3.5em;
+    letter-spacing: -0.03em;
+}
+
+
+
+
+svg rect {
+  fill: white;
+
+}
+
+svg > rect {
+  -webkit-mask: url(#mask);
+  mask: url(#mask);
+}
+
+
+
+@media  (min-width: 320px) and (max-width: 435px) {
+svg text {font-size: 3.15em;}
+svg {margin-top: 9%;}
+}
+
+
+section {
+z-index: 10;
+position: relative;
+background-color: #f2f2f2;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+ 
+}
