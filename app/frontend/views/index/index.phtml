@@ -1,0 +1,9 @@
+<?php
+$pages = Page::find();
+foreach ($pages as $page):
+    echo $page->getText(); 
+endforeach;
+?>
+<div id="direction">
+    <?= $this->partial('article\list_index') ?>
+</div>

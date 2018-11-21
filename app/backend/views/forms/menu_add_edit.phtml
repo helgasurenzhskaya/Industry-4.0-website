@@ -1,0 +1,34 @@
+<?php
+use Backend\Forms\MenuAddEditForm as Form;
+/**
+ * View's variables:
+ * @var Form $item_form
+ */
+?>
+<?php if (isset($item_form) && $item_form instanceof Form): ?>
+    <form class="form-horizontal" enctype="multipart/form-data" accept-charset="UTF-8" role="form" method="post" action="<?= $item_form->getAction() ?>">
+        <?php foreach ($item_form as $form_element):
+            if ($form_element instanceof Phalcon\Forms\Element\Hidden):
+                echo $form_element->render(['class' => 'form-control', 'required' => 'required']);
+            else:
+                $messages = $item_form->getMessagesFor($form_element->getName());
+                ?><div class="form-group<?php if ($messages->count() > 0):?> has-error<?php endif; ?>">
+                <?php /*<label class="control-label" for="<?= $form_element->getName() ?>"><?= $form_element->getLabel() ?></label>*/ ?>
+
+                <?php
+                echo $form_element->render(['class' => 'form-control', 'placeholder' =>  $form_element->getLabel()]);
+                if ($messages->count() > 0):
+                    foreach ($messages as $message):
+                        ?><span class="help-inline" for="<?= $form_element->getName() ?>"><i class="fa fa-exclamation-circle"></i>&nbsp;<?= $message->getMessage() ?></span><?php
+                    endforeach;
+                endif;
+                ?>
+                </div><?php
+            endif;
+        endforeach;
+        ?>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary br0">Save</button>
+        </div>
+    </form>
+<?php endif; ?>

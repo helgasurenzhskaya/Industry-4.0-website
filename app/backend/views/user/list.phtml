@@ -1,0 +1,31 @@
+<?php
+$items = User::find([
+    'order' => 'login ASC',
+]);
+?>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 3em;">#</th>
+      <th scope="col">Login</th>
+      <th scope="col" style="width: 3em;">Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <?php
+  $i_item = 0;
+  ?>
+  <?php foreach($items as $item): ?>
+    <tr>
+      <th scope="row"><?= ++$i_item ?></th>
+      <td><a href="<?= $item->getLinkBackendEdit() ?>"><?= $item->getLogin() ?></a></td>
+      <td><a class="btn btn-danger br0" href="<?= $item->getLinkBackendDelete() ?>"><i class="far fas fa-trash-alt"></i></a></td>
+    </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+
+
+<a class="btn btn-primary br0" href="<?= $this->url->get(['for' => 'backend/user/add']) ?>">Add</a>

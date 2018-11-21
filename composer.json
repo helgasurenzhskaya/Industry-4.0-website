@@ -1,0 +1,22 @@
+{
+    "name": "olga_feral/industry_4.0",
+    "description": "",
+    "version": "100.0",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "authors":[
+        {
+            "name": "Olga",
+            "email": "olga.fereal@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "~7.0.30",
+        "ext-phalcon": "~3.4.0",
+        "ext-pdo_mysql": "*",
+        "robmorgan/phinx": "~0.10.0"
+    },
+    "require-dev": {
+        "phalcon/ide-stubs": "~3.4.0"
+    }
+}

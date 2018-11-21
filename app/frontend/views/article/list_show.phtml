@@ -1,0 +1,23 @@
+<?php
+$articles = Article::find();
+if ($articles->count() > 0): ?>
+<div class="container">
+    <div class="items">
+        <div class="items-head">
+            <p>READ NEXT</p>
+            <hr>
+        </div>
+        <div class="items-body">
+            <?php foreach ($articles as $article): 
+                if ($article_skip_id === $article->getId()): 
+                    continue;
+                endif; ?>
+                <div class="items-body-content">
+                    <span><a href="<?= $article->getLink() ?>"><?= $article->getTitle() ?></a></span>
+                    <i class="fa fa-angle-right"></i>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
