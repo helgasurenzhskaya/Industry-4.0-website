@@ -46,3 +46,32 @@ $dark:          #000000;
 $fa-font-path: "../font";
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+h1 {
+    margin: 2%;
+} 
+
+
+.col-auto {
+    background-color: #f2f2f2;
+}
+
+.br0 {
+    border-radius: 1px !important;
+}
+
+.form-control {
+    border-radius: 1px !important;
+}
+
+.form-control:focus {
+    border-radius: 1px !important;
+    -webkit-box-shadow: none;
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+.img-thumbnail {
+    padding: 0px;
+    margin-bottom: 2%;
+}
+

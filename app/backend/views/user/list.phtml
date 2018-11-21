@@ -21,11 +21,11 @@ $items = User::find([
     <tr>
       <th scope="row"><?= ++$i_item ?></th>
       <td><a href="<?= $item->getLinkBackendEdit() ?>"><?= $item->getLogin() ?></a></td>
-      <td><a class="btn btn-danger" href="<?= $item->getLinkBackendDelete() ?>"><i class="far fas fa-trash-alt"></i></a></td>
+      <td><a class="btn btn-danger br0" href="<?= $item->getLinkBackendDelete() ?>"><i class="far fas fa-trash-alt"></i></a></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
 
-<a class="btn btn-primary" href="<?= $this->url->get(['for' => 'backend/user/add']) ?>">Add</a>
+<a class="btn btn-primary br0" href="<?= $this->url->get(['for' => 'backend/user/add']) ?>">Add</a>

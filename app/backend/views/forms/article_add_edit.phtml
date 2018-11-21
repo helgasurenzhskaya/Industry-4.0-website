@@ -21,7 +21,7 @@ use Backend\Forms\ArticleAddEditForm as Form;
                 ?><div class="form-group<?php if ($messages->count() > 0):?> has-error<?php endif; ?>">
                 <?php /*<label class="control-label" for="<?= $form_element->getName() ?>"><?= $form_element->getLabel() ?></label>*/ ?>
                 <?php if ($form_element->getName() === 'image' && $image !== null): ?>
-                    <img class="img-thumbnail" src="<?= $image ?>" alt="Main image">
+                    <img class="img-thumbnail" src="<?= $image ?>" alt="Main image">    
                 <?php endif; ?>
                 <?php
                 echo $form_element->render(['class' => 'form-control', 'placeholder' =>  $form_element->getLabel()]);
@@ -36,7 +36,7 @@ use Backend\Forms\ArticleAddEditForm as Form;
         endforeach;
         ?>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary br0">Save</button>
         </div>
     </form>
 <?php endif; ?>
