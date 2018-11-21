@@ -40,7 +40,7 @@ class Auth extends MvcUserComponent
         $this->session->remove('auth-identity');
     }
 
-    public function getUser(): User
+    public function getUser()
     {
         $identity = $this->session->get('auth-identity');
         if (isset($identity['user'])) {
