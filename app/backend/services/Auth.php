@@ -35,7 +35,7 @@ class Auth extends MvcUserComponent
         return $this->session->has('auth-identity');
     }
 
-    public function remove(): void
+    public function remove()
     {
         $this->session->remove('auth-identity');
     }
