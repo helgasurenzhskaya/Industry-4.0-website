@@ -11,7 +11,7 @@
     <link rel="stylesheet prefetch" type="text/css" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet prefetch" type="text/css" media="all" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="all" href="assets/css/frontend.css">
-   
+
 </head>
 <body>
     <header>
@@ -63,7 +63,6 @@
          * rather than a sudden jump in the page)
          */
         $(".js-anchor-link").click(function (e) {
-            e.preventDefault();
             var jq_this = $(this);
             var href = jq_this.attr("href");
             var target = [];
@@ -71,7 +70,8 @@
             if (i_anchor > -1) {
                 target = $(href.substring(i_anchor));
             }
-            if (target.length){
+            if (target.length > 0) {
+                e.preventDefault();
                 var scrollTo = target.offset().top;
                 jq_html.animate({scrollTop: scrollTo+"px"}, 800);
             }
