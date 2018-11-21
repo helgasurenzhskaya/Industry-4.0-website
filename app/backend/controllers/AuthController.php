@@ -43,7 +43,11 @@ class AuthController extends Controller
     public function logoutAction()
     {
         $this->auth->remove();
-        $this->response->redirect('index');
+        $this->response->redirect(
+            $this->url->path($this->url->get(['for' => 'backend/login'])),
+            false,
+            307
+        )->send();
         die;
     }
 }
