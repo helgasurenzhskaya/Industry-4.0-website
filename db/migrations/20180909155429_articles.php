@@ -169,16 +169,28 @@ class Articles extends AbstractMigration
                     margin: 0 0 10px;  
                 }
 
+               
+
+                ul {
+                  margin-top: 5%;
+                }
+
+
                 header {
-                    width: 100%;
-                    margin: 0 auto;
-                    position: relative;
-                  justify-content: space-between;
-                      align-items: center;
-                     background-color: white;
-                     padding: 8vw 0 0 0;
-                     opacity: 1;
-                  }
+                  width: 100%;
+                  margin: 0 auto;
+                  position: relative;
+                justify-content: space-between;
+                    align-items: center;
+                   background-color: white;
+                   opacity: 1;
+                }
+
+                .link {
+                  display: inline-block;
+                  float: right;
+                }
+                
                   
               </style>
               <div class="act"></div>
@@ -336,15 +348,26 @@ class Articles extends AbstractMigration
                     margin: 0 0 10px;  
                 }
 
-                header {
+               
+
+                  ul {
+                    margin-top: 5%;
+                  }
+
+
+                  header {
                     width: 100%;
                     margin: 0 auto;
                     position: relative;
                   justify-content: space-between;
                       align-items: center;
                      background-color: white;
-                     padding: 8vw 0 0 0;
                      opacity: 1;
+                  }
+
+                  .link {
+                    display: inline-block;
+                    float: right;
                   }
                   
               </style>
@@ -537,17 +560,28 @@ class Articles extends AbstractMigration
                     margin: 0 0 10px;  
                 }
 
+                
+
+                ul {
+                  margin-top: 5%;
+                }
+
+
                 header {
-                    width: 100%;
-                    margin: 0 auto;
-                    position: relative;
-                  justify-content: space-between;
-                      align-items: center;
-                     background-color: white;
-                     padding: 8vw 0 0 0;
-                     opacity: 1;
-                  }
-                  
+                  width: 100%;
+                  margin: 0 auto;
+                  position: relative;
+                justify-content: space-between;
+                    align-items: center;
+                   background-color: white;
+                   opacity: 1;
+                }
+
+                .link {
+                  display: inline-block;
+                  float: right;
+                }
+                
               </style>
               <div class="act"></div>
               <h1>Великі дані</h1>
@@ -714,17 +748,27 @@ class Articles extends AbstractMigration
                     margin: 0 0 10px;  
                 }
 
+
+                ul {
+                  margin-top: 5%;
+                }
+
+
                 header {
-                    width: 100%;
-                    margin: 0 auto;
-                    position: relative;
-                  justify-content: space-between;
-                      align-items: center;
-                     background-color: white;
-                     padding: 8vw 0 0 0;
-                     opacity: 1;
-                  }
-                  
+                  width: 100%;
+                  margin: 0 auto;
+                  position: relative;
+                justify-content: space-between;
+                    align-items: center;
+                   background-color: white;
+                   opacity: 1;
+                }
+
+                .link {
+                  display: inline-block;
+                  float: right;
+                }
+                
               </style>
               <div class="act"></div>
               <h1>Big Data</h1>
@@ -894,17 +938,27 @@ class Articles extends AbstractMigration
                     margin: 0 0 10px;  
                 }
 
+
+                ul {
+                  margin-top: 5%;
+                }
+
+
                 header {
-                    width: 100%;
-                    margin: 0 auto;
-                    position: relative;
-                  justify-content: space-between;
-                      align-items: center;
-                     background-color: white;
-                     padding: 8vw 0 0 0;
-                     opacity: 1;
-                  }
-                  
+                  width: 100%;
+                  margin: 0 auto;
+                  position: relative;
+                justify-content: space-between;
+                    align-items: center;
+                   background-color: white;
+                   opacity: 1;
+                }
+
+                .link {
+                  display: inline-block;
+                  float: right;
+                }
+                
               </style>
               <div class="act"></div>
               <h1>Інтернет речей</h1>
@@ -1061,17 +1115,28 @@ class Articles extends AbstractMigration
                     margin: 0 0 10px;  
                 }
 
+               
+
+                ul {
+                  margin-top: 5%;
+                }
+
+
                 header {
-                    width: 100%;
-                    margin: 0 auto;
-                    position: relative;
-                  justify-content: space-between;
-                      align-items: center;
-                     background-color: white;
-                     padding: 8vw 0 0 0;
-                     opacity: 1;
-                  }
-                  
+                  width: 100%;
+                  margin: 0 auto;
+                  position: relative;
+                justify-content: space-between;
+                    align-items: center;
+                   background-color: white;
+                   opacity: 1;
+                }
+
+                .link {
+                  display: inline-block;
+                  float: right;
+                }
+                
               </style>
               <div class="act"></div>
               <h1>Internet of things</h1>
@@ -1235,17 +1300,27 @@ class Articles extends AbstractMigration
                     margin: 0 0 10px;  
                 }
 
+
+                ul {
+                  margin-top: 5%;
+                }
+
+
                 header {
-                    width: 100%;
-                    margin: 0 auto;
-                    position: relative;
-                  justify-content: space-between;
-                      align-items: center;
-                     background-color: white;
-                     padding: 8vw 0 0 0;
-                     opacity: 1;
-                  }
-                  
+                  width: 100%;
+                  margin: 0 auto;
+                  position: relative;
+                justify-content: space-between;
+                    align-items: center;
+                   background-color: white;
+                   opacity: 1;
+                }
+
+                .link {
+                  display: inline-block;
+                  float: right;
+                }
+                
               </style>
               <div class="act"></div>
               <h1>Штучний інтелект</h1>
@@ -1409,17 +1484,27 @@ class Articles extends AbstractMigration
                     margin: 0 0 10px;  
                 }
 
+
+                ul {
+                  margin-top: 5%;
+                }
+
+
                 header {
-                    width: 100%;
-                    margin: 0 auto;
-                    position: relative;
-                  justify-content: space-between;
-                      align-items: center;
-                     background-color: white;
-                     padding: 8vw 0 0 0;
-                     opacity: 1;
-                  }
-                  
+                  width: 100%;
+                  margin: 0 auto;
+                  position: relative;
+                justify-content: space-between;
+                    align-items: center;
+                   background-color: white;
+                   opacity: 1;
+                }
+
+                .link {
+                  display: inline-block;
+                  float: right;
+                }
+                
               </style>
               <div class="act"></div>
               <h1>Artificial Intelligence</h1>

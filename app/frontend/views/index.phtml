@@ -38,7 +38,7 @@
                 if ($this->lang->getCurrent()->getId() === $lang->getId()):
                     continue;
                 endif;?>
-                <a href="<?= rtrim(str_replace('/'.$this->lang->getCurrent()->getId().'/', '/'.$lang->getId().'/', $current_uri), '/');?>"><div class="link"><?= $lang->getTitle() ?></div></a>
+                <div class="link"><a href="<?= rtrim(str_replace('/'.$this->lang->getCurrent()->getId().'/', '/'.$lang->getId().'/', $current_uri), '/');?>"><?= $lang->getTitle() ?></a></div>
             <?php endforeach;
         endif; ?>
     </header>
