@@ -57,8 +57,16 @@
 
   ul {
     margin-left: 7%;
-    list-style: none
+    list-style: none;
   }
+
+  @media(min-width:320px) and (max-width:731px) {
+    
+  header {
+    padding-bottom: 15vw;
+    margin-bottom: -20vw;
+  }
+}
 
   ul,#column-1,#column-2,#column-3 {
     float: left
@@ -706,4 +714,8 @@ background-color: #f2f2f2;
 p {
   margin-left: 5%;
   margin-right: 5%;
+}
+
+.footer a:hover {
+  color: #7599c2;
 }
