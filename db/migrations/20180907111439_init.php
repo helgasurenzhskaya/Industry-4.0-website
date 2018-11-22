@@ -50,7 +50,7 @@ class Init extends AbstractMigration
                 'name' => 'Industry 4.0',
                 // 'image' => '',
                 'text_uk' => '
-                <div style="position:relative;">
+                <div class="main">
                     <video autoplay playsinline muted loop preload poster="#">
                         <source src="content/video.mp4" type="video/mp4">
                         <source src="content/video.webm" type="video/webm">
@@ -78,7 +78,7 @@ class Init extends AbstractMigration
                 ',
 
                 'text_en' => '
-                <div style="position:relative;">
+                <div class="main">
                     <video autoplay playsinline muted loop preload poster="#">
                         <source src="content/video.mp4" type="video/mp4">
                         <source src="content/video.webm" type="video/webm">
