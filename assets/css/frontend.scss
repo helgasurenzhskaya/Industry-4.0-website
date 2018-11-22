@@ -65,6 +65,7 @@
   header {
     padding-bottom: 15vw;
     margin-bottom: -20vw;
+
   }
 }
 
@@ -161,7 +162,8 @@
 
   header {
     justify-content: space-between;
-    animation: fadeIn 1s 0.5s forwards ease-in
+    animation: fadeIn 1s 0.5s forwards ease-in;
+    height: 12vw;
   }
 
   header,section {
