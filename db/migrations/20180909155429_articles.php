@@ -184,6 +184,7 @@ class Articles extends AbstractMigration
                     align-items: center;
                    background-color: white;
                    opacity: 1;
+                   height: 12vw;
                 }
 
                 .link {
@@ -363,6 +364,7 @@ class Articles extends AbstractMigration
                       align-items: center;
                      background-color: white;
                      opacity: 1;
+                     height: 12vw;
                   }
 
                   .link {
@@ -575,6 +577,7 @@ class Articles extends AbstractMigration
                     align-items: center;
                    background-color: white;
                    opacity: 1;
+                   height: 12vw;
                 }
 
                 .link {
@@ -762,6 +765,7 @@ class Articles extends AbstractMigration
                     align-items: center;
                    background-color: white;
                    opacity: 1;
+                   height: 12vw;
                 }
 
                 .link {
@@ -952,6 +956,7 @@ class Articles extends AbstractMigration
                     align-items: center;
                    background-color: white;
                    opacity: 1;
+                   height: 12vw;
                 }
 
                 .link {
@@ -1130,6 +1135,7 @@ class Articles extends AbstractMigration
                     align-items: center;
                    background-color: white;
                    opacity: 1;
+                   height: 12vw;
                 }
 
                 .link {
@@ -1314,6 +1320,7 @@ class Articles extends AbstractMigration
                     align-items: center;
                    background-color: white;
                    opacity: 1;
+                   height: 12vw;
                 }
 
                 .link {
@@ -1498,6 +1505,7 @@ class Articles extends AbstractMigration
                     align-items: center;
                    background-color: white;
                    opacity: 1;
+                   height: 12vw;
                 }
 
                 .link {
