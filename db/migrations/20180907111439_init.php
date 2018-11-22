@@ -51,20 +51,20 @@ class Init extends AbstractMigration
                 // 'image' => '',
                 'text_uk' => '
                 <div class="main">
-                    <video autoplay playsinline muted loop preload poster="#">
-                        <source src="content/video.mp4" type="video/mp4">
-                        <source src="content/video.webm" type="video/webm">
-                    </video>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 80" preserveAspectRatio="xMidYMid slice">
-                        <defs>
-                            <mask id="mask" x="0" y="0" width="100%" height="100%">
-                                <rect x="0" y="0" width="100%" height="100%">
-                                <text x="50%" y="35%" alignment-baseline="middle" text-anchor="middle">IN4.0</text>
-                            </mask>
-                        </defs>
-                        <rect x="0" y="0" width="100%" height="100%">
-                    </svg>
-                </div>
+                <video autoplay playsinline muted loop preload poster="#">
+                    <source src="content/video.mp4" type="video/mp4">
+                    <source src="content/video.webm" type="video/webm">
+                </video>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 80" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <mask id="mask" x="0" y="0" width="100%" height="100%" >
+                            <rect x="0" y="0" width="100%" height="100%" />
+                            <text x="50%" y="35%" dominant-baseline="middle" alignment-baseline="middle" text-anchor="middle">IN4.0</text>
+                        </mask>
+                    </defs>
+                    <rect x="0" y="0" width="100%" height="100%" />
+                </svg>
+            </div>
                 <section class="hero">
                     <div class="hero-content">
                         <h3>Четверта технічна революція</h3>
