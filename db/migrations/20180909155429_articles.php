@@ -44,7 +44,145 @@ class Articles extends AbstractMigration
             'title_en' => 'Cyber-physical systems',
             'image' => '1.jpg',
             'text_uk' => '
+            <style>
+            body {
+                background: url("content/article/1.jpg") no-repeat;
+                background-size: 100%;
+                background-position: top center;
+                margin: 0;
+                padding: 0;
+                background-attachment: fixed;
+                color: #393941;
+                font-family: Basier, Corbel, sans-serif;
+              }
+              .act {
+                background-color: white;
+            margin: 0 auto;
+            padding: 0.1vw 0 0 0.1vw;
+            }
+            h1 {
+                cursor: default;
+                  font-size: 10vw;
+                  line-height: 1;
+                  text-align: center;
+                  font-family: Basier, sans-serif;
+                  text-transform: uppercase;
+                  color: #fefefe;
+                  margin: 12vw 1vw 10vw 1vw;
+                font-weight: 600;
+                text-shadow: 1vw 1vw 10vw rgba(99, 99, 99, 0.5)
+                }
+                img {
+                  width: 100%;
+                  vertical-align: middle;
+                  border: 0;
+                  margin: 0 0 10px 0;
+                  height: auto;
+                  position: unset;
+                }
 
+                .wrapper {
+                    background: #fefefe;
+                    width: 100%;
+                    min-height: 100%;
+                    margin: 0 0 0 0;
+                    position: relative;
+                  }
+                  .content-wrapper {
+                    padding: 5% 10%;
+                    width: 100%;
+                    margin: auto;
+                    cursor: default;
+                  font-size: 2.5vh;
+                    line-height: 2;
+                    }
+                  .first-character {font-weight:400; float: left; font-size: 7vh; line-height: 2vh; padding-top: 4px; padding-right: 0.2vw; padding-left: 0px; }
+                  .content-wrapper .image-left {
+                    padding: 5% 5% 5% 0;
+                    width: 50%;
+                    float: left;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-left {
+                      width: 100%;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-left img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-left:hover {
+                    opacity: 1;
+                  }
+                  .content-wrapper .image-right {
+                    padding: 5% 0 5% 5%;
+                    width: 50%;
+                    float: right;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-right {
+                      width: 100%;
+                      float: left;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-right img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-right:hover {
+                    opacity: 1;
+                  }
+
+                  p {
+                    margin: 0 0 10px;  
+                }
+
+                header {
+                    width: 100%;
+                    margin: 0 auto;
+                    position: relative;
+                  justify-content: space-between;
+                      align-items: center;
+                     background-color: white;
+                     padding: 8vw 0 0 0;
+                     opacity: 1;
+                  }
+                  
+              </style>
+              <div class="act"></div>
+              <h1>Кіберфізичні системи</h1>
             <div class="wrapper">
                 <div class="content-wrapper">
                     <span class="first-character">Н</span>
@@ -58,7 +196,7 @@ class Articles extends AbstractMigration
                         Упродовж останніх кількох років спостерігається підвищена активність в сфері створення кіберфізичних систем, поєднань фізичних та кібернетичних компонентів, які забезпечують організацію вимірювально-обчислювальних процесів, захищене зберігання службової інформації.
                     </p>
                     <div class="image-left">
-                        <img src="cs1.jpg" />
+                        <img src="./content/article/cs1.jpg" />
                         <p>
                             Спираючись на концепцію кіберфізичних систем, провідні наукові установи та групи в усьому світі спрямовують свої зусилля на пошук нових напрямів розвитку інформаційно-обчислювальних технологій об’єднанням та інтегруванням різних за призначенням підсистем у єдину децентралізовану та гнучку систему.
                         </p>
@@ -73,7 +211,145 @@ class Articles extends AbstractMigration
             </div> ',
 
             'text_en' => '
+            <style>
+            body {
+                background: url("content/article/1.jpg") no-repeat;
+                background-size: 100%;
+                background-position: top center;
+                margin: 0;
+                padding: 0;
+                background-attachment: fixed;
+                color: #393941;
+                font-family: Basier, Corbel, sans-serif;
+              }
+              .act {
+                background-color: white;
+            margin: 0 auto;
+            padding: 0.1vw 0 0 0.1vw;
+            }
+            h1 {
+                cursor: default;
+                  font-size: 10vw;
+                  line-height: 1;
+                  text-align: center;
+                  font-family: Basier, sans-serif;
+                  text-transform: uppercase;
+                  color: #fefefe;
+                  margin: 12vw 1vw 10vw 1vw;
+                font-weight: 600;
+                text-shadow: 1vw 1vw 10vw rgba(99, 99, 99, 0.5)
+                }
+                img {
+                  width: 100%;
+                  vertical-align: middle;
+                  border: 0;
+                  margin: 0 0 10px 0;
+                  height: auto;
+                  position: unset;
+                }
 
+                .wrapper {
+                    background: #fefefe;
+                    width: 100%;
+                    min-height: 100%;
+                    margin: 0 0 0 0;
+                    position: relative;
+                  }
+                  .content-wrapper {
+                    padding: 5% 10%;
+                    width: 100%;
+                    margin: auto;
+                    cursor: default;
+                  font-size: 2.5vh;
+                    line-height: 2;
+                    }
+                  .first-character {font-weight:400; float: left; font-size: 7vh; line-height: 2vh; padding-top: 4px; padding-right: 0.2vw; padding-left: 0px; }
+                  .content-wrapper .image-left {
+                    padding: 5% 5% 5% 0;
+                    width: 50%;
+                    float: left;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-left {
+                      width: 100%;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-left img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-left:hover {
+                    opacity: 1;
+                  }
+                  .content-wrapper .image-right {
+                    padding: 5% 0 5% 5%;
+                    width: 50%;
+                    float: right;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-right {
+                      width: 100%;
+                      float: left;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-right img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-right:hover {
+                    opacity: 1;
+                  }
+
+                  p {
+                    margin: 0 0 10px;  
+                }
+
+                header {
+                    width: 100%;
+                    margin: 0 auto;
+                    position: relative;
+                  justify-content: space-between;
+                      align-items: center;
+                     background-color: white;
+                     padding: 8vw 0 0 0;
+                     opacity: 1;
+                  }
+                  
+              </style>
+              <div class="act"></div>
+              <h1>Cyber-physical systems</h1>
             <div class="wrapper">
                 <div class="content-wrapper">
                     <span class="first-character">A</span>
@@ -136,6 +412,145 @@ class Articles extends AbstractMigration
                 'title_en' => 'Big data analysis',
                 'image' => '2.jpg',
                 'text_uk' => '
+                <style>
+            body {
+                background: url("content/article/2.jpg") no-repeat;
+                background-size: 100%;
+                background-position: top center;
+                margin: 0;
+                padding: 0;
+                background-attachment: fixed;
+                color: #393941;
+                font-family: Basier, Corbel, sans-serif;
+              }
+              .act {
+                background-color: white;
+            margin: 0 auto;
+            padding: 0.1vw 0 0 0.1vw;
+            }
+            h1 {
+                cursor: default;
+                  font-size: 10vw;
+                  line-height: 1;
+                  text-align: center;
+                  font-family: Basier, sans-serif;
+                  text-transform: uppercase;
+                  color: #fefefe;
+                  margin: 12vw 1vw 10vw 1vw;
+                font-weight: 600;
+                text-shadow: 1vw 1vw 10vw rgba(99, 99, 99, 0.5)
+                }
+                img {
+                  width: 100%;
+                  vertical-align: middle;
+                  border: 0;
+                  margin: 0 0 10px 0;
+                  height: auto;
+                  position: unset;
+                }
+
+                .wrapper {
+                    background: #fefefe;
+                    width: 100%;
+                    min-height: 100%;
+                    margin: 0 0 0 0;
+                    position: relative;
+                  }
+                  .content-wrapper {
+                    padding: 5% 10%;
+                    width: 100%;
+                    margin: auto;
+                    cursor: default;
+                  font-size: 2.5vh;
+                    line-height: 2;
+                    }
+                  .first-character {font-weight:400; float: left; font-size: 7vh; line-height: 2vh; padding-top: 4px; padding-right: 0.2vw; padding-left: 0px; }
+                  .content-wrapper .image-left {
+                    padding: 5% 5% 5% 0;
+                    width: 50%;
+                    float: left;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-left {
+                      width: 100%;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-left img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-left:hover {
+                    opacity: 1;
+                  }
+                  .content-wrapper .image-right {
+                    padding: 5% 0 5% 5%;
+                    width: 50%;
+                    float: right;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-right {
+                      width: 100%;
+                      float: left;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-right img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-right:hover {
+                    opacity: 1;
+                  }
+
+                  p {
+                    margin: 0 0 10px;  
+                }
+
+                header {
+                    width: 100%;
+                    margin: 0 auto;
+                    position: relative;
+                  justify-content: space-between;
+                      align-items: center;
+                     background-color: white;
+                     padding: 8vw 0 0 0;
+                     opacity: 1;
+                  }
+                  
+              </style>
+              <div class="act"></div>
+              <h1>Великі дані</h1>
                 <div class="wrapper">
                     <div class="content-wrapper">
                         <span class="first-character">В</span>
@@ -158,7 +573,7 @@ class Articles extends AbstractMigration
                             Тільки в Google відбувається близько 40 000 пошукових запитів щомиті, що дає близько 1,2 трильйона пошукових запитів для великих даних щорічно. І з кожним днем кількість даних збільшується все швидше. Якщо сьогодні ми генеруємо 4,4 зетабайта даних, то до 2020 ми будемо створювати вже 44. До 2020 року майже третина всіх даних буде проходити через хмарні сервіси, а значить буде піддана аналізу.
                         </p>
                         <div class="image-right">
-                        <img src="./content/article/b2.jpg"/>
+                        <img src="./content/article/bd2.jpg"/>
                             <p>
                                 Цікаво, що для аналізу великих даних не завжди використовуються комп\'ютери корпорацій.
                             </p>
@@ -174,6 +589,145 @@ class Articles extends AbstractMigration
 
             ',
                 'text_en' => '
+                <style>
+            body {
+                background: url("content/article/2.jpg") no-repeat;
+                background-size: 100%;
+                background-position: top center;
+                margin: 0;
+                padding: 0;
+                background-attachment: fixed;
+                color: #393941;
+                font-family: Basier, Corbel, sans-serif;
+              }
+              .act {
+                background-color: white;
+            margin: 0 auto;
+            padding: 0.1vw 0 0 0.1vw;
+            }
+            h1 {
+                cursor: default;
+                  font-size: 10vw;
+                  line-height: 1;
+                  text-align: center;
+                  font-family: Basier, sans-serif;
+                  text-transform: uppercase;
+                  color: #fefefe;
+                  margin: 12vw 1vw 10vw 1vw;
+                font-weight: 600;
+                text-shadow: 1vw 1vw 10vw rgba(99, 99, 99, 0.5)
+                }
+                img {
+                  width: 100%;
+                  vertical-align: middle;
+                  border: 0;
+                  margin: 0 0 10px 0;
+                  height: auto;
+                  position: unset;
+                }
+
+                .wrapper {
+                    background: #fefefe;
+                    width: 100%;
+                    min-height: 100%;
+                    margin: 0 0 0 0;
+                    position: relative;
+                  }
+                  .content-wrapper {
+                    padding: 5% 10%;
+                    width: 100%;
+                    margin: auto;
+                    cursor: default;
+                  font-size: 2.5vh;
+                    line-height: 2;
+                    }
+                  .first-character {font-weight:400; float: left; font-size: 7vh; line-height: 2vh; padding-top: 4px; padding-right: 0.2vw; padding-left: 0px; }
+                  .content-wrapper .image-left {
+                    padding: 5% 5% 5% 0;
+                    width: 50%;
+                    float: left;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-left {
+                      width: 100%;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-left img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-left:hover {
+                    opacity: 1;
+                  }
+                  .content-wrapper .image-right {
+                    padding: 5% 0 5% 5%;
+                    width: 50%;
+                    float: right;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-right {
+                      width: 100%;
+                      float: left;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-right img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-right:hover {
+                    opacity: 1;
+                  }
+
+                  p {
+                    margin: 0 0 10px;  
+                }
+
+                header {
+                    width: 100%;
+                    margin: 0 auto;
+                    position: relative;
+                  justify-content: space-between;
+                      align-items: center;
+                     background-color: white;
+                     padding: 8vw 0 0 0;
+                     opacity: 1;
+                  }
+                  
+              </style>
+              <div class="act"></div>
+              <h1>Big Data</h1>
                 <div class="wrapper">
                     <div class="content-wrapper">
                         <span class="first-character">B</span> <p>ig Data has become a trendy word in business, and their potential benefits and pitfalls are getting more and more attention from business and media around the world. The vast majority of collected data is stored and transmitted through new technologies, rebuilding priorities for many enterprises, and the development of new analytical tools adapts to other profound shifts in how companies work for the sake of business transformation. </p>
@@ -215,6 +769,145 @@ class Articles extends AbstractMigration
                 'image' => '3.jpg',
                 'text_uk' => '
                 <div class="wrapper">
+                <style>
+            body {
+                background: url("content/article/3.jpg") no-repeat;
+                background-size: 100%;
+                background-position: top center;
+                margin: 0;
+                padding: 0;
+                background-attachment: fixed;
+                color: #393941;
+                font-family: Basier, Corbel, sans-serif;
+              }
+              .act {
+                background-color: white;
+            margin: 0 auto;
+            padding: 0.1vw 0 0 0.1vw;
+            }
+            h1 {
+                cursor: default;
+                  font-size: 10vw;
+                  line-height: 1;
+                  text-align: center;
+                  font-family: Basier, sans-serif;
+                  text-transform: uppercase;
+                  color: #fefefe;
+                  margin: 12vw 1vw 10vw 1vw;
+                font-weight: 600;
+                text-shadow: 1vw 1vw 10vw rgba(99, 99, 99, 0.5)
+                }
+                img {
+                  width: 100%;
+                  vertical-align: middle;
+                  border: 0;
+                  margin: 0 0 10px 0;
+                  height: auto;
+                  position: unset;
+                }
+
+                .wrapper {
+                    background: #fefefe;
+                    width: 100%;
+                    min-height: 100%;
+                    margin: 0 0 0 0;
+                    position: relative;
+                  }
+                  .content-wrapper {
+                    padding: 5% 10%;
+                    width: 100%;
+                    margin: auto;
+                    cursor: default;
+                  font-size: 2.5vh;
+                    line-height: 2;
+                    }
+                  .first-character {font-weight:400; float: left; font-size: 7vh; line-height: 2vh; padding-top: 4px; padding-right: 0.2vw; padding-left: 0px; }
+                  .content-wrapper .image-left {
+                    padding: 5% 5% 5% 0;
+                    width: 50%;
+                    float: left;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-left {
+                      width: 100%;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-left img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-left:hover {
+                    opacity: 1;
+                  }
+                  .content-wrapper .image-right {
+                    padding: 5% 0 5% 5%;
+                    width: 50%;
+                    float: right;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-right {
+                      width: 100%;
+                      float: left;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-right img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-right:hover {
+                    opacity: 1;
+                  }
+
+                  p {
+                    margin: 0 0 10px;  
+                }
+
+                header {
+                    width: 100%;
+                    margin: 0 auto;
+                    position: relative;
+                  justify-content: space-between;
+                      align-items: center;
+                     background-color: white;
+                     padding: 8vw 0 0 0;
+                     opacity: 1;
+                  }
+                  
+              </style>
+              <div class="act"></div>
+              <h1>Інтернет речей</h1>
                     <div class="content-wrapper">
                         <span class="first-character">С</span>
                         <p>
@@ -243,6 +936,145 @@ class Articles extends AbstractMigration
                 ',
 
                 'text_en' => '
+                <style>
+            body {
+                background: url("content/article/3.jpg") no-repeat;
+                background-size: 100%;
+                background-position: top center;
+                margin: 0;
+                padding: 0;
+                background-attachment: fixed;
+                color: #393941;
+                font-family: Basier, Corbel, sans-serif;
+              }
+              .act {
+                background-color: white;
+            margin: 0 auto;
+            padding: 0.1vw 0 0 0.1vw;
+            }
+            h1 {
+                cursor: default;
+                  font-size: 10vw;
+                  line-height: 1;
+                  text-align: center;
+                  font-family: Basier, sans-serif;
+                  text-transform: uppercase;
+                  color: #fefefe;
+                  margin: 12vw 1vw 10vw 1vw;
+                font-weight: 600;
+                text-shadow: 1vw 1vw 10vw rgba(99, 99, 99, 0.5)
+                }
+                img {
+                  width: 100%;
+                  vertical-align: middle;
+                  border: 0;
+                  margin: 0 0 10px 0;
+                  height: auto;
+                  position: unset;
+                }
+
+                .wrapper {
+                    background: #fefefe;
+                    width: 100%;
+                    min-height: 100%;
+                    margin: 0 0 0 0;
+                    position: relative;
+                  }
+                  .content-wrapper {
+                    padding: 5% 10%;
+                    width: 100%;
+                    margin: auto;
+                    cursor: default;
+                  font-size: 2.5vh;
+                    line-height: 2;
+                    }
+                  .first-character {font-weight:400; float: left; font-size: 7vh; line-height: 2vh; padding-top: 4px; padding-right: 0.2vw; padding-left: 0px; }
+                  .content-wrapper .image-left {
+                    padding: 5% 5% 5% 0;
+                    width: 50%;
+                    float: left;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-left {
+                      width: 100%;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-left img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-left:hover {
+                    opacity: 1;
+                  }
+                  .content-wrapper .image-right {
+                    padding: 5% 0 5% 5%;
+                    width: 50%;
+                    float: right;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-right {
+                      width: 100%;
+                      float: left;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-right img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-right:hover {
+                    opacity: 1;
+                  }
+
+                  p {
+                    margin: 0 0 10px;  
+                }
+
+                header {
+                    width: 100%;
+                    margin: 0 auto;
+                    position: relative;
+                  justify-content: space-between;
+                      align-items: center;
+                     background-color: white;
+                     padding: 8vw 0 0 0;
+                     opacity: 1;
+                  }
+                  
+              </style>
+              <div class="act"></div>
+              <h1>Internet of things</h1>
                     <div class="wrapper">
                         <div class="content-wrapper">
                             <span class="first-character">T</span>
@@ -278,6 +1110,145 @@ class Articles extends AbstractMigration
                 'title_en' => 'Artificial intelligence',
                 'image' => '4.jpg',
                 'text_uk' => '
+                <style>
+            body {
+                background: url("content/article/4.jpg") no-repeat;
+                background-size: 100%;
+                background-position: top center;
+                margin: 0;
+                padding: 0;
+                background-attachment: fixed;
+                color: #393941;
+                font-family: Basier, Corbel, sans-serif;
+              }
+              .act {
+                background-color: white;
+            margin: 0 auto;
+            padding: 0.1vw 0 0 0.1vw;
+            }
+            h1 {
+                cursor: default;
+                  font-size: 10vw;
+                  line-height: 1;
+                  text-align: center;
+                  font-family: Basier, sans-serif;
+                  text-transform: uppercase;
+                  color: #fefefe;
+                  margin: 12vw 1vw 10vw 1vw;
+                font-weight: 600;
+                text-shadow: 1vw 1vw 10vw rgba(99, 99, 99, 0.5)
+                }
+                img {
+                  width: 100%;
+                  vertical-align: middle;
+                  border: 0;
+                  margin: 0 0 10px 0;
+                  height: auto;
+                  position: unset;
+                }
+
+                .wrapper {
+                    background: #fefefe;
+                    width: 100%;
+                    min-height: 100%;
+                    margin: 0 0 0 0;
+                    position: relative;
+                  }
+                  .content-wrapper {
+                    padding: 5% 10%;
+                    width: 100%;
+                    margin: auto;
+                    cursor: default;
+                  font-size: 2.5vh;
+                    line-height: 2;
+                    }
+                  .first-character {font-weight:400; float: left; font-size: 7vh; line-height: 2vh; padding-top: 4px; padding-right: 0.2vw; padding-left: 0px; }
+                  .content-wrapper .image-left {
+                    padding: 5% 5% 5% 0;
+                    width: 50%;
+                    float: left;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-left {
+                      width: 100%;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-left img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-left:hover {
+                    opacity: 1;
+                  }
+                  .content-wrapper .image-right {
+                    padding: 5% 0 5% 5%;
+                    width: 50%;
+                    float: right;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-right {
+                      width: 100%;
+                      float: left;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-right img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-right:hover {
+                    opacity: 1;
+                  }
+
+                  p {
+                    margin: 0 0 10px;  
+                }
+
+                header {
+                    width: 100%;
+                    margin: 0 auto;
+                    position: relative;
+                  justify-content: space-between;
+                      align-items: center;
+                     background-color: white;
+                     padding: 8vw 0 0 0;
+                     opacity: 1;
+                  }
+                  
+              </style>
+              <div class="act"></div>
+              <h1>Штучний інтелект</h1>
                     <div class="wrapper">
                         <div class="content-wrapper">
                             <span class="first-character">Ш</span>
@@ -313,6 +1284,145 @@ class Articles extends AbstractMigration
                     ',
 
                 'text_en' => '
+                <style>
+            body {
+                background: url("content/article/4.jpg") no-repeat;
+                background-size: 100%;
+                background-position: top center;
+                margin: 0;
+                padding: 0;
+                background-attachment: fixed;
+                color: #393941;
+                font-family: Basier, Corbel, sans-serif;
+              }
+              .act {
+                background-color: white;
+            margin: 0 auto;
+            padding: 0.1vw 0 0 0.1vw;
+            }
+            h1 {
+                cursor: default;
+                  font-size: 10vw;
+                  line-height: 1;
+                  text-align: center;
+                  font-family: Basier, sans-serif;
+                  text-transform: uppercase;
+                  color: #fefefe;
+                  margin: 12vw 1vw 10vw 1vw;
+                font-weight: 600;
+                text-shadow: 1vw 1vw 10vw rgba(99, 99, 99, 0.5)
+                }
+                img {
+                  width: 100%;
+                  vertical-align: middle;
+                  border: 0;
+                  margin: 0 0 10px 0;
+                  height: auto;
+                  position: unset;
+                }
+
+                .wrapper {
+                    background: #fefefe;
+                    width: 100%;
+                    min-height: 100%;
+                    margin: 0 0 0 0;
+                    position: relative;
+                  }
+                  .content-wrapper {
+                    padding: 5% 10%;
+                    width: 100%;
+                    margin: auto;
+                    cursor: default;
+                  font-size: 2.5vh;
+                    line-height: 2;
+                    }
+                  .first-character {font-weight:400; float: left; font-size: 7vh; line-height: 2vh; padding-top: 4px; padding-right: 0.2vw; padding-left: 0px; }
+                  .content-wrapper .image-left {
+                    padding: 5% 5% 5% 0;
+                    width: 50%;
+                    float: left;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-left {
+                      width: 100%;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-left img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-left:hover {
+                    opacity: 1;
+                  }
+                  .content-wrapper .image-right {
+                    padding: 5% 0 5% 5%;
+                    width: 50%;
+                    float: right;
+                    opacity: 0.8;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    -webkit-transition-property: all;
+                    transition-property: all;
+                    -moz-transition-duration: 0.6s;
+                    -o-transition-duration: 0.6s;
+                    -webkit-transition-duration: 0.6s;
+                    transition-duration: 0.6s;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    -webkit-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                    font-size: 80%;
+                    font-style: italic;
+                    line-height: 20px;
+                  }
+                  @media (max-width: 900px) {
+                    .content-wrapper .image-right {
+                      width: 100%;
+                      float: left;
+                      padding: 0 0 5% 0;
+                    }
+                  }
+                  .content-wrapper .image-right img {
+                    margin: 0 0 10px 0;
+                  }
+                  .content-wrapper .image-right:hover {
+                    opacity: 1;
+                  }
+
+                  p {
+                    margin: 0 0 10px;  
+                }
+
+                header {
+                    width: 100%;
+                    margin: 0 auto;
+                    position: relative;
+                  justify-content: space-between;
+                      align-items: center;
+                     background-color: white;
+                     padding: 8vw 0 0 0;
+                     opacity: 1;
+                  }
+                  
+              </style>
+              <div class="act"></div>
+              <h1>Artificial Intelligence</h1>
                     <div class="wrapper">
                         <div class="content-wrapper">
                             <span class="first-character">A</span>
