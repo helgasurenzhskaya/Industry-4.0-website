@@ -196,11 +196,11 @@ $di->setShared(
                 'langs' => [
                     [
                         'code' => 'uk',
-                        'title' => 'Українська',
+                        'title' => 'Укр',
                     ],
                     [
                         'code' => 'en',
-                        'title' => 'English',
+                        'title' => 'En',
                     ],
                 ],
             ]
