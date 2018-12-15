@@ -1,3 +1,17 @@
+<?php $this->assets->addInlineCss('
+body {
+    background: url("' . $article->getImageLink() . '") no-repeat;
+    background-size: 100%;
+    background-position: top center;
+    background-attachment: fixed;
+}
+'); ?>
+<div class="act"></div>
+<h1><?= $article->getTitle(); ?></h1>
+<div class="wrapper">
+    <div class="content-wrapper">
+       <?= $article->getText(); ?>
+    </div>
+</div>
 <?php
-echo $article->getText();
 echo $this->partial('article/list_show', ['article_skip_id' => $article->getId(),]);

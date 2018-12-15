@@ -14,5 +14,6 @@ class ArticleController extends Controller
             $this->dispatcher->forward(['controller' => 'error', 'action' => 'show404']);
         }
         $this->view->setVar('article', $article);
+        $this->view->setVar('page_classes', 'page-article-show');
     }
 }
