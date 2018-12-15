@@ -2,6 +2,7 @@
 
 namespace Backend\Controller;
 
+use Exception;
 use Phalcon\Mvc\Controller;
 use Backend\Forms\AuthLoginForm as Form;
 
@@ -12,14 +13,14 @@ class AuthController extends Controller
         $form = new Form();
         try {
             if ($this->request->isPost()) {
-//			if ($form->isValid($this->request->getPost()) == false)
-//			{
-//				foreach ($form->getMessages() as $message)
-//				{
-//					$this->flash->error($message);
-//				}
-//			}
-//			else
+                if ($form->isValid($this->request->getPost()) == false)
+                {
+                    foreach ($form->getMessages() as $message)
+                    {
+                        $this->flashSession->error($message);
+                    }
+                }
+                else
                 {
                     $this->auth->check(
                         $this->request->getPost('login'),
@@ -34,8 +35,7 @@ class AuthController extends Controller
                 }
             }
         } catch (Exception $e) {
-            var_dump($e);
-            $this->flash->error($e->getMessage());
+            $this->flashSession->error($e->getMessage());
         }
         $this->view->setVar('item_form', $form);
     }
