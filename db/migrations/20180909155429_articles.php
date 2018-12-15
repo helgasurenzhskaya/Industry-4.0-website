@@ -24,6 +24,13 @@ class Articles extends AbstractMigration
             'password' => $security->hash('123456'),
             'role' => 'admin',
         ]);
+        $users->insert([
+            'id' => $olgaId + 1,
+            'login' => 'admin',
+            'name' => 'Admin',
+            'password' => $security->hash('123'),
+            'role' => 'admin',
+        ]);
 
         $users->create();
 
