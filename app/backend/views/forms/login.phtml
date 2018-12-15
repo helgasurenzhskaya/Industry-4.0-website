@@ -5,9 +5,11 @@ use Backend\Forms\AuthLoginForm as Form;
  * @var Form $item_form
  */
 ?>
+
 <?php if (isset($item_form) && $item_form instanceof Form): ?>
-    <form class="form-horizontal" accept-charset="UTF-8" role="form" method="post" action="<?= $this->url->get(['for' => 'backend/login']) ?>">
-        <?php foreach ($item_form as $form_element):
+
+    <form class="form-horizontal col-md-6 col-xs-12 float-left m-0 p-0" accept-charset="UTF-8" role="form" method="post" action="<?= $this->url->get(['for' => 'backend/login']) ?>">
+ <?php foreach ($item_form as $form_element):
             if ($form_element instanceof Phalcon\Forms\Element\Hidden):
                 echo $form_element->render(['class' => 'form-control', 'required' => 'required']);
             else:
