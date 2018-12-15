@@ -6,14 +6,14 @@ use Backend\Forms\UserAddEditForm as Form;
  */
 ?>
 <?php if (isset($item_form) && $item_form instanceof Form): ?>
-    <form class="form-horizontal" accept-charset="UTF-8" role="form" method="post" action="<?= $item_form->getAction() ?>">
+    <form class="form-horizontal pl-2 pr-2" accept-charset="UTF-8" role="form" method="post" action="<?= $item_form->getAction() ?>">
         <?php foreach ($item_form as $form_element):
             if ($form_element instanceof Phalcon\Forms\Element\Hidden):
                 echo $form_element->render(['class' => 'form-control', 'required' => 'required']);
             else:
                 $messages = $item_form->getMessagesFor($form_element->getName());
                 ?><div class="form-group<?php if ($messages->count() > 0):?> has-error<?php endif; ?>">
-                <?php /*<label class="control-label" for="<?= $form_element->getName() ?>"><?= $form_element->getLabel() ?></label>*/ ?>
+                 <label class="control-label" for="<?= $form_element->getName() ?>"><?= $form_element->getLabel() ?></label>
 
                 <?php
                 echo $form_element->render(['class' => 'form-control', 'placeholder' =>  $form_element->getLabel()]);
