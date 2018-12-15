@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             <?php if ($this->auth->isLoggedIn() === true): ?>
-                <div class="col-auto" style="width: 300px;">
+                <div class="col-auto" style="width: 400px;">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active" href="<?= $this->url->get(['for' => 'backend/page/list']) ?>">Pages list</a>
@@ -37,7 +37,7 @@
                     </ul>
                 </div>
             <?php endif; ?>
-            <div class="col">
+            <div class="col p-0">
                 <?= $this->getContent(); ?>
             </div>
         </div>
